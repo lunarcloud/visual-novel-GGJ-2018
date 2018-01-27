@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GGJ 2018</title>
+        <link rel="manifest" href="manifest.webapp">
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, minimal-ui, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <meta name="theme-color" content="#4D533C">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <meta name="application-name" content="GGJ 2018">
+        <meta name="msapplication-tooltip" content="">
+        <meta name="msapplication-TileColor" content="#4D533C">
+
+        <link href="media/icons/badger-bros.ico" rel="shortcut icon">
+        <link rel="icon" sizes="512x512" href="media/icon.png">
+        <link rel="icon" sizes="192x192" href="media/icon.png">
+
+        <style type="text/css">
+            * {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            html,body {
+                background-color: #000;
+
+                color: #fff;
+                font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Oxygen", "Ubuntu", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+                margin: 0;
+                padding: 0;
+                font-size: 12px;
+                line-height: 1.3;
+                max-width: 100%;
+            }
+
+            body.no-cursor {
+                cursor: none;
+            }
+
+            #canvas {
+                background-color: #1F1F1F;
+                object-fit: contain;
+                margin: auto;
+                position: absolute;
+                top:0; bottom:0; /* vertical center */
+                left:0; right:0; /* horizontal center */
+                image-rendering: optimizequality !important;
+
+                min-width: 640px !important;
+                min-height: 480px !important;
+            }
+
+            #canvas.r16x9 {
+                height: 56.25vw !important; /* height:width ratio = 9/16 = .5625  */
+                max-width: 177.78vh !important;  /* 16/9 = 1.778 */
+            }
+            #canvas.r16x10 {
+                height: 62.5vw !important; /* height:width ratio = 10/16 = .625  */
+                max-width: 160vh !important;  /* 16/10 = 1.6 */
+            }
+            #canvas.r4x3 {
+                height: 75vw !important; /* height:width ratio = 3/4 = .75  */
+                max-width: 133.33vh !important;  /* 4/3 = 1.333 */
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+        <canvas id="canvas" class="r16x9"></canvas>
+
+        <script src="js/sprintf.min.js"></script>
+        <script src="js/webfontloader.js"></script>
+
+<!--        <script src="gameinputjs/gameinput.min.js"></script>-->
+<!--        <script src="gameinputjs/gameinput.models.min.js"></script>-->
+
+        <script type="text/javascript" src="js/ink.js"></script>
+        <script type="text/javascript" src="js/generated/story.js"></script>
+
+        <script type="text/javascript" src="lib/impact/impact.js"></script>
+        <script type="text/javascript" src="lib/game/main.js"></script>
+    </body>
+</html>
