@@ -11,12 +11,12 @@ Blardy blah.
 
 = menu
 
-#dailymenu:day1
+#dailymenu:day5
 + [Note] -> note
 * [SgtBriggs] -> briggs
 * [SgtDoherty] -> dohrety
 * [OffWiley] -> wiley
-* [OffCuster] -> custer
+* [LtHughes] -> hughes
 
 = briggs
 
@@ -33,7 +33,7 @@ aoeu
 aoeu
 -> menu
 
-= custer
+= hughes
 
 aoeu
 -> menu

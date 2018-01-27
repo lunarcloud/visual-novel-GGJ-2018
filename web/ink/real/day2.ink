@@ -19,7 +19,7 @@ Blardy blah.
 
 = menu
 
-#dailymenu:day1
+#dailymenu:day2
 + [Note] -> note
 * [SgtBriggs] -> briggs
 * [SgtDoherty] -> dohrety
