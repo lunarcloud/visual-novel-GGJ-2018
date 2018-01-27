@@ -61,12 +61,17 @@ InkStory = ig.Class.extend({
         var needNewline = false;
         for (var i = 0; i < text.length; i++) {
             sizedText += text[i];
-            if (i > 59 && i % 70 === 0) {
+            if (i > 64 && i % 65 === 0) {
                 needNewline = true;
             }
-            if (needNewline && text[i] == " ") {
-                sizedText += '\n';
-                needNewline = false;
+            if (needNewline) {
+                if (/[\s\.?!\-+=]/.test(text[i])) {
+                    sizedText += '\n';
+                    needNewline = false;
+                } else if ( i !== text.length-1 && i > 71 && i % 72 === 0) {
+                    sizedText += '-\n';
+                    needNewline = false;
+                }
             }
         }
         var moment = new ss.DialogTextMoment(
@@ -78,7 +83,11 @@ InkStory = ig.Class.extend({
     },
 
     end: function() {
-        ig.game.loadMainMenu();
+        ig.game.fadeOutTimer = new ig.Timer(ig.game.fadeOutTime + 0.1);
+        setTimeout(function() {
+            ig.game.loadMainMenu();
+            ig.game.fadeInTimer = new ig.Timer(ig.game.fadeInTime);
+        }, ig.game.fadeOutTime * 1000);
     }
 });
 
