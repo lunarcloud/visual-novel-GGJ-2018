@@ -3,16 +3,8 @@
 */
 == opening_survey ==
 #music:menu
-Answer some basic questions before we begin...
 
-What's the time? <>
- * [Use AM/PM notation.]
- ~ time_format = time_format.AM_PM
- * [Use 24 hour time.]
- ~ time_format = time_format.24H
-
--<> {get_time_string()}.
-And this story is about? <>
+This story is about? <>
  * [A boy.]Linden Wright
     ~ player = Linden
  * [A girl.]Lucie Wright
@@ -31,5 +23,5 @@ And this story is about? <>
     ~ Mell_Gender = Mell_Gender.Male
     ~ Korga_Gender = Korga_Gender.Male
 -
-Okay, now we can begin...
+Okay, now we can begin.
 -> Explore
