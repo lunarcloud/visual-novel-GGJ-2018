@@ -20,6 +20,46 @@ The office is almost stiflingly hot. You set your bag down.
 
 = after_greet
 
-rest of the day...
+Lt. Gerald Hughes hands you a note.
+-> note
 
-{not greet_francis: -> Day2.flower | -> Day2.other}
+= note
+
+Blardy blah.
+
+-> menu
+
+= menu
+
+#dailymenu:day1
++ [Note] -> note
+* [SgtBriggs] -> briggs
+* [SgtDoherty] -> dohrety
+* [OffWiley] -> wiley
+* [OffCuster] -> custer
+
+= briggs
+
+aoeu
+-> menu
+
+= dohrety
+
+aoeu
+
+{wiley: -> afterall | -> menu}
+
+= wiley
+
+aoeu
+
+{dohrety: -> afterall | -> menu}
+
+= custer
+
+aoeu
+-> menu
+
+= afterall
+
+{not greet_francis: -> Day2Flower | -> Day2Fire}

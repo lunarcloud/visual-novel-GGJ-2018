@@ -6,4 +6,42 @@ Custer is talking to witnesses.
 
 End of day. Telegraph received. “It is all for you”. It is address to nobody.
 
+Lt. Gerald Hughes hands you a note.
+-> note
+
+= note
+
+Blardy blah.
+
+-> menu
+
+= menu
+
+#dailymenu:day1
++ [Note] -> note
+* [SgtBriggs] -> briggs
+* [SgtDoherty] -> dohrety
+* [OffWiley] -> wiley
+* [OffCuster] -> custer
+
+= briggs
+
+aoeu
+-> menu
+
+= dohrety
+
+aoeu
+-> menu
+
+= wiley
+
+aoeu
+-> menu
+
+= custer
+
+aoeu
+-> menu
+
 -> Day4
