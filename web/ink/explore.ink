@@ -5,6 +5,7 @@ Type:   Ocielle
 */
 
 == Explore ==
+#music:explore
 
 {not did_something_today: You sit in the park in Astam Junction's old district, | You head back to the park for a bit, } thinking of what to do with your time. #portrait:player
   * [visit the chocolatier] -> did_something_today (-> chocolatier)

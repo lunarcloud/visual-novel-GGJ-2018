@@ -5,6 +5,7 @@ Type:   Filifa
 */
 
 == chocolatier ==
+#music:chocolate
 You decide to visit the chocolatier.
 There were so many different varieties of chocolate on display.
 "What {~can I get you today|catches your fancy}, {playerSirOrMiss()}?" the shopkeeper asked. #portrait:adam

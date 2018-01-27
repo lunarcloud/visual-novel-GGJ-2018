@@ -2,6 +2,7 @@
     Determine Player Preferences
 */
 == opening_survey ==
+#music:menu
 Answer some basic questions before we begin...
 
 What's the time? <>

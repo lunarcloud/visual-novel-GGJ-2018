@@ -3,6 +3,45 @@
 */
 "user strict";
 
+function save() {
+    var saveState = story.state.toJson();
+    // write to file or localstorage
+}
+
+function load() {
+    var loadState = "";
+    // load from file or localstorage
+    story.state.LoadJson(loadState);
+}
+
+function processTags(tags) {
+    if (tags == undefined) return;
+
+    var hadPortrait = false;
+    for (var i = 0; i < tags.length; i++) {
+        if (tags[i].includes("portrait:")) {
+            portrait(tags[i].replace(/portrait:/, ""));
+            hadPortrait = true;
+        } else if (tags[i].includes("music:")) {
+            music(tags[i].replace(/music:/, ""));
+        } else {
+            console.log("#" + tags[i]);
+        }
+        if (!hadPortrait) {
+            portrait("none");
+        }
+    }
+}
+
+function portrait(character) {
+    console.log("☺️ " + character);
+}
+
+function music(title) {
+    console.log("🎵 " + title);
+}
+
+
 console.debug("Ink Version: " + storyContent.inkVersion);
 
 console.debug("Variables: ");
@@ -22,9 +61,7 @@ var story = new inkjs.Story(storyContent);
 do {
     do {
         story.Continue();
-        for (var i = 0; i < story.currentTags.length; i++) {
-            console.log("#" + story.currentTags[i]);
-        }
+        processTags(story.currentTags);
         console.log("\t" + story.currentText);
     } while (story.canContinue);
     for (var i = 0; i < story.currentChoices.length; i++) {
@@ -36,14 +73,3 @@ do {
         break;
     }
 } while (!story.state.didSafeExit);
-
-function save() {
-    var saveState = story.state.toJson();
-    // write to file or localstorage
-}
-
-function load() {
-    var loadState = "";
-    // load from file or localstorage
-    story.state.LoadJson(loadState);
-}
