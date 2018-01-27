@@ -106,7 +106,7 @@ InkStory = ig.Class.extend({
             ig.system.context.fillStyle = '#fff';
             ig.system.context.fillRect( 0, 0, ig.system.realWidth, ig.system.realHeight );
         } else {
-            if (this.backgroundCache[this.currentBackground] === "undefined") {
+            if (this.currentBackground in this.backgroundCache === false) {
                 this.backgroundCache[this.currentBackground] = new ig.Image('media/background/'+this.currentBackground+'.jpg');
             }
             var cached = this.backgroundCache[this.currentBackground];
@@ -121,11 +121,10 @@ InkStory = ig.Class.extend({
     drawPortrait: function() {
         if (typeof(this.currentPortrait) === "undefined") return;
 
-        var cached = this.portraitCache[this.currentPortrait.character];
-        if ( typeof(cached) !== "undefined" ) {
-            cached = new ig.Image('media/portrait'+this.currentPortrait.character+'.png');
-            this.portraitCache[this.currentPortrait.character] = cached;
+        if ( this.currentPortrait.character in this.portraitCache === false ) {
+            this.portraitCache[this.currentPortrait.character] = new ig.Image('media/portrait/'+this.currentPortrait.character+'.png');;
         }
+        var cached = this.portraitCache[this.currentPortrait.character];
         if (typeof(cached) === "undefined") {
             console.error("Missing art for portrait: " + this.currentPortrait.character);
         } else {
@@ -135,9 +134,9 @@ InkStory = ig.Class.extend({
 
     getPortraitX: function(position, width) {
         switch (position) {
-            case left:
+            case "left":
                 return 20;
-            case right:
+            case "right":
                 return ig.system.width - width - 20;
             default:
                 //center
