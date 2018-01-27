@@ -3,56 +3,58 @@
 */
 "user strict";
 
-function save() {
-    var saveState = story.state.toJson();
-    // write to file or localstorage
+function getInkGlobalVar(key) {
+    var varObj = story.variablesState[key];
+    for (var i in varObj._keys) {
+        return varObj._keys[i].itemName;
+    }
+    return null;
 }
 
-function load() {
-    var loadState = "";
-    // load from file or localstorage
+function getSaveState() {
+    return story.state.toJson();
+}
+
+function loadState(dataString) {
     story.state.LoadJson(loadState);
 }
 
 function processTags(tags) {
     if (tags == undefined) return;
 
-    var hadPortrait = false;
+    var usedTags = {};
     for (var i = 0; i < tags.length; i++) {
-        if (tags[i].includes("portrait:")) {
-            portrait(tags[i].replace(/portrait:/, ""));
-            hadPortrait = true;
-        } else if (tags[i].includes("music:")) {
-            music(tags[i].replace(/music:/, ""));
-        } else {
-            console.log("#" + tags[i]);
+        for (var j in tagHandlers) {
+            if (tags[i].includes(j+":")) {
+                tagHandlers[j].apply(null, tags[i].split(":"));
+                usedTags[j] = true;
+            }
         }
-        if (!hadPortrait) {
-            portrait("none");
+    }
+    for (var j in tagLackHandlers) {
+        if (!usedTags[j]) {
+            tagLackHandlers[j]();
         }
     }
 }
 
-function portrait(character) {
-    console.log("☺️ " + character);
-}
-
-function music(title) {
-    console.log("🎵 " + title);
-}
-
-
-console.debug("Ink Version: " + storyContent.inkVersion);
-
-console.debug("Variables: ");
-for (var item in storyContent.listDefs) {
-    if (typeof(storyContent.listDefs[item]) === "object") {
-        console.debug("\t" + item + ": ");
-        for (var sub in storyContent.listDefs[item]) {
-            console.debug("\t\t" + sub + ": " + storyContent.listDefs[item][sub]);
+var tagHandlers = {
+    portrait: function(key, character, position) {
+        if (typeof(position) !== "string") position = "center";
+        if (character == null) {
+            console.log("☺️ none");
+        } else {
+            console.log("☺️ " + character + " - " + position);
         }
-    } else {
-        console.debug("\t" + item + ": " + storyContent.listDefs[item]);
+    },
+    music: function(key, title) {
+        console.log("🎵 " + title);
+    }
+}
+
+var tagLackHandlers = {
+    portrait: function() {
+        tagHandlers.portrait(null, null);
     }
 }
 
