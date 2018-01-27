@@ -12,17 +12,22 @@ ig.module(
 InkStory = ig.Class.extend({
 
     name: "Speech",
-    ink: new ss.Ink(storyContent),
+    ink: undefined,
     commonAction: undefined,
     currentPortrait: undefined,
 
     init: function() {
         if ( ig.global.wm ) return;
 
+        this.ink = new ss.Ink(storyContent);
+
         var inkstory = this;
 
         this.commonAction = new ss.DialogAction(function() {
-            if (inkstory.ink.isEnded()) return inkstory.end();
+            if (inkstory.ink.isEnded()) {
+                this.setNextMoment(null);
+                return inkstory.end();
+            }
 
             var moment = inkstory.getNextMoment(0);
             this.setNextMoment(moment);
