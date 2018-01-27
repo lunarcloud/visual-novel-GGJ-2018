@@ -13,10 +13,6 @@ ig.module(
     'game.colors',
     'game.logos',
     'game.menu.title',
-    'game.entities.void',
-    'game.entities.ink-visual-novel',
-    'plugins.ss.dialog',
-
     'game.levels.blank'
 
     //'impact.debug.debug',
@@ -37,24 +33,18 @@ VNGGJ2018 = ig.Game.extend({
     fadeInTimer: undefined,
     fadeOutTimer: undefined,
 
-    titleMusic: new ig.Sound( 'media/music/Kevin_MacLeod_-_Carefree.*', false),
+    music: {
+        menu: new ig.Sound( 'media/music/Kevin_MacLeod_-_Carefree.*', false)
+    },
 
     init: function() {
         // Initialize your game here; bind keys etc.
 
-        ig.music.add( this.titleMusic, "Title");
-        ig.music.volume = 0.4;
-        ig.music.play("Title");
-
-        ig.game.localStorage.get("music-enabled", function(musicEnabled) {
-            if (musicEnabled === null) return;
-
-            console.debug("Setting loaded: music-enabled = " + musicEnabled);
-
-            ig.game.musicEnabled = typeof(musicEnabled) === "boolean" ? musicEnabled : musicEnabled === "true";
-            if (ig.game.musicEnabled) ig.music.play();
-            else ig.music.stop();
-        });
+        // Add all music
+        for (var i in this.music) {
+            ig.music.add( this.music[i], i);
+            //ig.music.volume = 0.4;
+        }
 
         this.setupDialogManager();
 
@@ -92,8 +82,8 @@ VNGGJ2018 = ig.Game.extend({
 
     loadMainMenu: function()
     {
+        ig.music.fadeOut();
         this.menu = new TitleMenu();
-        ig.music.play("Title");
     },
 
     setupDesktopControls: function() {
@@ -138,8 +128,8 @@ VNGGJ2018 = ig.Game.extend({
         ig.game.sortBy = ig.Game.SORT.POS_Y;
 
         this.fadeOutTimer = new ig.Timer(this.fadeOutTime);
+        ig.music.fadeOut();
         setTimeout(function() {
-            ig.music.fadeOut();
 
             if (location.search.length > 0) ig.game.loadLevel(self["Level"+location.search.replace("?level=","")]);
             else ig.game.loadLevel(LevelBlank);
@@ -181,39 +171,7 @@ VNGGJ2018 = ig.Game.extend({
             ig.system.context.fillStyle = 'rgba(0,0,0,'+fadeAlpha+')';
             ig.system.context.fillRect( 0, 0, ig.system.realWidth, ig.system.realHeight );
         }
-    },
-
-    toggleMusic : function()
-    {
-        if (ig.game.musicEnabled) ig.game.stopMusic();
-        else ig.game.startMusic();
-
-        return ig.game.musicEnabled;
-    },
-
-    startMusic : function()
-    {
-        if (ig.game.musicEnabled == false)
-        {
-            ig.game.musicEnabled = true;
-            ig.music.play();
-            ig.game.localStorage.set("music-enabled", true);
-        }
-        return ig.game.musicEnabled;
-    },
-
-    stopMusic : function()
-    {
-        if (ig.game.musicEnabled == true)
-        {
-            ig.game.musicEnabled = false;
-            ig.music.stop();
-            ig.game.localStorage.set("music-enabled", false);
-        }
-        return ig.game.musicEnabled;
-    },
-
-
+    }
 });
 
 var fps = 60;

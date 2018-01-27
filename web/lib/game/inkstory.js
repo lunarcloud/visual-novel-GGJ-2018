@@ -1,9 +1,8 @@
 ig.module(
-    'game.cutscenes.inkstory'
+    'game.inkstory'
 )
 .requires(
     'impact.entity',
-    //'game.cutscenes.characters',
     'plugins.ss.dialog',
     'plugins.ss.ink'
 )
@@ -15,7 +14,9 @@ InkStory = ig.Class.extend({
     ink: undefined,
     commonAction: undefined,
     currentPortrait: undefined,
+    portraitCache: {},
     currentBackground: undefined,
+    backgroundCache: {},
 
     init: function() {
         if ( ig.global.wm ) return;
@@ -37,7 +38,7 @@ InkStory = ig.Class.extend({
         this.ink.tagHandlers["portrait"] = function(key, character, position) {
             if (!position) position = "left";
 
-            if (character == null) {
+            if (character == null || character == "none") {
                 inkstory.currentPortrait = undefined;
             } else {
                 inkstory.currentPortrait = {
@@ -46,8 +47,12 @@ InkStory = ig.Class.extend({
                 };
             }
         };
+        this.ink.tagHandlers["background"] = function(key, name) {
+            inkstory.currentBackground = name == null || name == "none" ? undefined : name;
+        };
         this.ink.tagHandlers["music"] = function(key, title) {
             console.debug("🎵 " + title);
+            ig.music.play(title);
         };
 
         this.ink.tagLackHandlers["portrait"] = function() {
@@ -97,11 +102,46 @@ InkStory = ig.Class.extend({
     },
 
     drawBG: function() {
-        if (typeof(currentBackground) === "undefined") {
+        if (typeof(this.currentBackground) === "undefined") {
             ig.system.context.fillStyle = '#fff';
             ig.system.context.fillRect( 0, 0, ig.system.realWidth, ig.system.realHeight );
         } else {
-            this.currentBackground.draw(0, 0);
+            if (this.backgroundCache[this.currentBackground] === "undefined") {
+                this.backgroundCache[this.currentBackground] = new ig.Image('media/background/'+this.currentBackground+'.jpg');
+            }
+            var cached = this.backgroundCache[this.currentBackground];
+            if (typeof(cached) === "undefined") {
+                console.error("Missing art for background: " + this.currentBackground);
+            } else {
+                cached.draw(0, 0);
+            }
+        }
+    },
+
+    drawPortrait: function() {
+        if (typeof(this.currentPortrait) === "undefined") return;
+
+        var cached = this.portraitCache[this.currentPortrait.character];
+        if ( typeof(cached) !== "undefined" ) {
+            cached = new ig.Image('media/portrait'+this.currentPortrait.character+'.png');
+            this.portraitCache[this.currentPortrait.character] = cached;
+        }
+        if (typeof(cached) === "undefined") {
+            console.error("Missing art for portrait: " + this.currentPortrait.character);
+        } else {
+            cached.draw(this.getPortraitX(this.currentPortrait.position, cached.width), 0);
+        }
+    },
+
+    getPortraitX: function(position, width) {
+        switch (position) {
+            case left:
+                return 20;
+            case right:
+                return ig.system.width - width - 20;
+            default:
+                //center
+                return (ig.system.width - width) / 2;
         }
     }
 });

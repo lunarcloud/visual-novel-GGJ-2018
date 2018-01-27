@@ -5,6 +5,7 @@ Type:   Filifa
 */
 
 == chocolatier ==
+#background:chocolate
 #music:chocolate
 You decide to visit the chocolatier.
 There were so many different varieties of chocolate on display.

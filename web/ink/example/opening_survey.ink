@@ -2,6 +2,7 @@
     Determine Player Preferences
 */
 == opening_survey ==
+#background:none
 #music:menu
 
 This story is about? <>

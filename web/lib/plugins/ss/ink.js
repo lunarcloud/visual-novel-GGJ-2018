@@ -52,7 +52,7 @@ ss.Ink = ig.Class.extend({
         }
         this.story.Continue();
         this.processTags(this.getTags());
-        if (this.consoleDebug) console.debug("INK: TEXT:" + story.currentText);
+        if (this.consoleDebug) console.debug("INK: TEXT:" + this.story.currentText);
     },
 
     isEnded: function() {

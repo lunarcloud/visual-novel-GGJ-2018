@@ -5,7 +5,7 @@ ig.module(
     'impact.entity',
     'plugins.ss.random',
     'plugins.ss.dialog',
-    'game.cutscenes.inkstory'
+    'game.inkstory'
 )
 .defines(function(){
 
@@ -38,6 +38,7 @@ EntityInkVisualNovel = ss.DialogManagedEntity.extend({
     draw: function() {
         this.parent();
         this.cutscene.drawBG();
+        this.cutscene.drawPortrait();
         if (this.dialogManager) {
             this.dialogManager.draw();
         }

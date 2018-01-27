@@ -69,7 +69,7 @@ ig.module(
             for (var i = 0; i < Object.keys(menu.Page).length; i++ ) options.push([]);
 
 
-            var firstYAfterTitle = this.titleFont.textSize + 40;
+            var firstYAfterTitle = this.titleFont.textSize + 240;
 
             //TODO
 
