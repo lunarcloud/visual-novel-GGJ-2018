@@ -15,6 +15,7 @@ InkStory = ig.Class.extend({
     ink: undefined,
     commonAction: undefined,
     currentPortrait: undefined,
+    currentBackground: undefined,
 
     init: function() {
         if ( ig.global.wm ) return;
@@ -93,6 +94,15 @@ InkStory = ig.Class.extend({
             ig.game.loadMainMenu();
             ig.game.fadeInTimer = new ig.Timer(ig.game.fadeInTime);
         }, ig.game.fadeOutTime * 1000);
+    },
+
+    drawBG: function() {
+        if (typeof(currentBackground) === "undefined") {
+            ig.system.context.fillStyle = '#fff';
+            ig.system.context.fillRect( 0, 0, ig.system.realWidth, ig.system.realHeight );
+        } else {
+            this.currentBackground.draw(0, 0);
+        }
     }
 });
 

@@ -13,10 +13,10 @@ ig.module(
         startBlinkTimer: null,
 
         useTrueFont: true,
-        trueFont: new ss.TrueFont("Cavalcade", 42, "#ccc", "/fonts/Cavalcade/Cavalcade-Regular.css"),
+        trueFont: new ss.TrueFont("Cavalcade", 42, "#666", "/fonts/Cavalcade/Cavalcade-Regular.css"),
 
         useSelectedFont: true,
-        selectedTrueFont: new ss.TrueFont("Cavalcade", 42, "#f4b342", "/fonts/Cavalcade/Cavalcade-Regular.css"),
+        selectedTrueFont: new ss.TrueFont("Cavalcade", 42, "#333", "/fonts/Cavalcade/Cavalcade-Regular.css"),
 
         Page: {
             MAIN : 0,
@@ -41,7 +41,7 @@ ig.module(
             this.parent();
         },
 
-        titleFont: new ss.TrueFont("Cavalcade", 64, "#ccc", "/fonts/Cavalcade/Cavalcade-Regular.css"),
+        titleFont: new ss.TrueFont("Cavalcade", 64, "#444", "/fonts/Cavalcade/Cavalcade-Regular.css"),
         titleText: function() { return ig.i18n().GameTitle; },
 
         pageBack: function()
@@ -213,7 +213,7 @@ ig.module(
         {
             //background
             //this.startImage.draw(0, 0);
-            ig.system.context.fillStyle = 'rgb(70,70,70)';
+            ig.system.context.fillStyle = '#f7efd7';
             ig.system.context.fillRect( 0, 0, ig.system.realWidth, ig.system.realHeight );
             this.titleFont.draw(this.titleText(), ig.system.width/2, 10, ss.TrueFont.ALIGN.CENTER, 1);
 

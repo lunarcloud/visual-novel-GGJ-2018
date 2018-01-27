@@ -37,6 +37,7 @@ EntityInkVisualNovel = ss.DialogManagedEntity.extend({
 
     draw: function() {
         this.parent();
+        this.cutscene.drawBG();
         if (this.dialogManager) {
             this.dialogManager.draw();
         }

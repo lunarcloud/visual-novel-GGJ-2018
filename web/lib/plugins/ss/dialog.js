@@ -40,6 +40,7 @@ ig.module(
         minHeight: 20,
         textLinePadding: 2,
         textEdgePadding: 2,
+        outlineThickness: 4,
         bottomMargin: 20,
         leftMargin: 100,
         rightMargin: 100,
@@ -47,6 +48,7 @@ ig.module(
         fontName: "sans-serif bold",
         fontColor: "rgba(0,0,0,1)",
         bgColor: "rgba(190, 190, 190, 1)",
+        outlineColor: "rgb(30, 30, 30)",
         upButtons: ['up'],
         downButtons: ['down'],
         leftButtons: ['left'],
@@ -490,6 +492,18 @@ ig.module(
         _prepImage: function(moment)
         {
             ss.texture2DContext.clearRect(0, 0, ss.texture2DCanvas.width, ss.texture2DCanvas.height );
+
+            var outPX = ss.GlobalDialogManager.outlineThickness;
+            ss.texture2DContext.fillStyle = ss.GlobalDialogManager.outlineColor;
+            ss.texture2DContext.beginPath();
+            ss.texture2DContext.rect(
+                this.activeGeometry.textBacking.x() - outPX,
+                this.activeGeometry.textBacking.y - outPX,
+                this.activeGeometry.textBacking.getWidth() + (outPX*2),
+                this.activeGeometry.textBacking.getHeight() + (outPX*2)
+            );
+            ss.texture2DContext.closePath();
+            ss.texture2DContext.fill();
 
             ss.texture2DContext.fillStyle = ss.GlobalDialogManager.bgColor;
             ss.texture2DContext.beginPath();

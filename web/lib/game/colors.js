@@ -4,12 +4,14 @@ ig.module(
 .requires()
 .defines(function() {
     NormalGameColors = {
-        DialogBG: "#1F1F1F",
-        DialogFG: "#cfcfcf"
+        DialogBGOutline: "#f49242",
+        DialogBG: "#f7efd7",
+        DialogFG: "#444"
     };
     AltGameColors = {
+        DialogBGOutline: "#000",
         DialogBG: "#1F1F1F",
-        DialogFG: "#C4CFA1"
+        DialogFG: "#cfcfcf"
     };
     GameColors = NormalGameColors;
 
