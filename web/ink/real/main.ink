@@ -7,6 +7,6 @@ INCLUDE day3.ink
 INCLUDE day4.ink
 INCLUDE day5.ink
 
-#background:switchboard
+#background:desk
 
 -> Day1
