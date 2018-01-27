@@ -4,7 +4,8 @@ ig.module(
 .requires(
     'impact.entity',
     'plugins.ss.random',
-    'plugins.ss.dialog'
+    'plugins.ss.dialog',
+    'game.cutscenes.inkstory'
 )
 .defines(function(){
 
@@ -20,11 +21,11 @@ EntityInkVisualNovel = ss.DialogManagedEntity.extend({
     init: function( x, y, settings ) {
         this.parent( x, y, settings );
 
-        if (settings.cutscene !== "" && "Cutscene" + settings.cutscene in self) {
-            this.cutscene = new self["Cutscene" + settings.cutscene]();
-            this.dialogManager = new ss.DialogManager(this.cutscene.getFirstMoment());
-            this.dialogManager.trigger();
-        }
+        if ( ig.global.wm ) return;
+
+        this.cutscene = new InkStory();
+        this.dialogManager = new ss.DialogManager(this.cutscene.getNextMoment());
+        this.dialogManager.trigger();
     },
 
     update: function() {

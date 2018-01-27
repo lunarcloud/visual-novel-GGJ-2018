@@ -4,7 +4,7 @@
 LIST player = Linden, Lucie
 LIST Mell_Gender = Male, Female
 LIST Korga_Gender = Male, Female
-
+ 
 == function playerSirOrMiss() ==
     { player:
         - Linden: ~ return "sir"

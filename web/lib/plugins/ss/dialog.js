@@ -17,6 +17,8 @@ ig.module(
     'plugins.ss.dialog'
 )
 .requires(
+    'impact.system',
+    'impact.game',
     'impact.timer',
     'impact.entity',
     'plugins.ss.texture-canvas',
@@ -169,7 +171,9 @@ ig.module(
             else {
                 this.text = text;
             }
-            this.setCharacter(character);
+            if (typeof(character) === "object") {
+                this.setCharacter(character);
+            }
         },
         refreshText: function()
         {
@@ -572,10 +576,12 @@ ig.module(
 
             if (ss.mainCanvasIs2D) {
                 ig.system.context.globalAlpha = 1;
-                this.activeMoment.character.animation.draw(
-                    this.activeMoment.character.x,
-                    this.activeMoment.character.y
-                );
+                if (typeof(this.activeMoment.character) === "object") {
+                    this.activeMoment.character.animation.draw(
+                        this.activeMoment.character.x,
+                        this.activeMoment.character.y
+                    );
+                }
                 ig.system.context.drawImage(this._preparedImage, 0, 0);
             } else {
                 // webgl rendering
