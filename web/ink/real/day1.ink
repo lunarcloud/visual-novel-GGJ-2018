@@ -1,4 +1,6 @@
-
+/*
+First Day, big decision
+*/
 
  == Day1 ==
  
@@ -10,5 +12,14 @@ The long trudge to the police station was made better by the shade cast by a rar
 
 The office is almost stiflingly hot. You set your bag down.
 
+* Greet Francis [] -> greet_francis
+* Ignore Francis [] -> after_greet
 
--> Day2
+= greet_francis
+-> after_greet
+
+= after_greet
+
+rest of the day...
+
+{not greet_francis: -> Day2.flower | -> Day2.other}
