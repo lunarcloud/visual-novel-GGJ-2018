@@ -25,6 +25,7 @@ EntityInkVisualNovel = ss.DialogManagedEntity.extend({
 
         this.cutscene = new InkStory();
         this.dialogManager = new ss.DialogManager(this.cutscene.getNextMoment());
+        this.cutscene.setDialogManager(this.dialogManager);
         this.dialogManager.trigger();
     },
 

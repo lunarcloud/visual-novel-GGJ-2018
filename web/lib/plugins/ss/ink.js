@@ -61,13 +61,13 @@ ss.Ink = ig.Class.extend({
     },
 
     getText: function() {
-        return this.story.currentText;
+        return this.story.currentText.trim();
     },
 
     getChoices: function() {
         var choices = [];
         for (var i = 0; i < this.story.currentChoices.length; i++) {
-            choices.push(story.currentChoices[i].text);
+            choices.push(this.story.currentChoices[i].text.trim());
         }
         return choices;
     },

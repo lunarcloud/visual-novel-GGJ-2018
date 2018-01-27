@@ -56,6 +56,7 @@ ig.module(
         selectButtons: ['primary'],
         cancelButtons: ['cancel'],
         cursor: new ss.Cursor(),
+        inputNavDelayTimer: new ig.Timer(),
         betweenActionsTimer: new ig.Timer(),
         trueFont: undefined,
         loadFont: function(name, css) {
@@ -83,33 +84,33 @@ ig.module(
         }
     }
 
-    var anyUpReleased = function() {
+    var anyUpPressed = function() {
         for (var i = 0; i < ss.GlobalDialogManager.upButtons.length; i++) {
-            if (ig.input.released(ss.GlobalDialogManager.upButtons[i])) {
+            if (ig.input.pressed(ss.GlobalDialogManager.upButtons[i])) {
                 return true;
             }
         }
         return false
     }
-    var anyDownReleased = function() {
+    var anyDownPressed = function() {
         for (var i = 0; i < ss.GlobalDialogManager.downButtons.length; i++) {
-            if (ig.input.released(ss.GlobalDialogManager.downButtons[i])) {
+            if (ig.input.pressed(ss.GlobalDialogManager.downButtons[i])) {
                 return true;
             }
         }
         return false
     }
-    var anyLeftReleased = function() {
+    var anyLeftPressed = function() {
         for (var i = 0; i < ss.GlobalDialogManager.leftButtons.length; i++) {
-            if (ig.input.released(ss.GlobalDialogManager.leftButtons[i])) {
+            if (ig.input.pressed(ss.GlobalDialogManager.leftButtons[i])) {
                 return true;
             }
         }
         return false
     }
-    var anyRightReleased = function() {
+    var anyRightPressed = function() {
         for (var i = 0; i < ss.GlobalDialogManager.rightButtons.length; i++) {
-            if (ig.input.released(ss.GlobalDialogManager.rightButtons[i])) {
+            if (ig.input.pressed(ss.GlobalDialogManager.rightButtons[i])) {
                 return true;
             }
         }
@@ -223,7 +224,7 @@ ig.module(
         trigger: async function(manager) {
             manager.changeActiveMoment(null);
             if (typeof(this.handler) === "function") {
-                await this.handler();
+                await this.handler(manager.selectedChoiceIndex);
             }
             if (this.nextMoment instanceof ss.DialogMoment === false) {
                 manager.endDialog();
@@ -425,6 +426,7 @@ ig.module(
 
         changeActiveMoment: function(moment)
         {
+            this.selectedChoiceIndex = 0;
             this.activeMoment = moment;
             this._prepActiveGeometry(moment);
             this._prepImage(moment);
@@ -437,31 +439,28 @@ ig.module(
 
             moment.refreshText();
             this.activeGeometry.items.push( new ss.DialogTextItem(moment.text, false) );
-
             if ( moment instanceof ss.DialogChoiceMoment ) for (var i = 0; i < moment.choices.length; i++) {
                 moment.refreshChoice(i);
                 this.activeGeometry.items.push( new ss.DialogTextItem(moment.choices[i], true) );
             }
 
             this.activeGeometry.textBacking.y = ss.texture2DCanvas.height - scaled(ss.GlobalDialogManager.textEdgePadding + ss.GlobalDialogManager.bottomMargin);
-
             this.activeGeometry.textBacking.unscaledY = descaled(ss.texture2DCanvas.height) - (ss.GlobalDialogManager.textEdgePadding + ss.GlobalDialogManager.bottomMargin);
 
-            for (var i = 0; i < this.activeGeometry.items.length; i++)
-            {
-                this.activeGeometry.textBacking.y -= this.activeGeometry.items[i].height;
+            for (var i = 0; i < this.activeGeometry.items.length; i++) {
+                this.activeGeometry.textBacking.y -= scaled(this.activeGeometry.items[i].height + ss.GlobalDialogManager.textLinePadding);
+                this.activeGeometry.textBacking.unscaledY -= this.activeGeometry.items[i].height + ss.GlobalDialogManager.textLinePadding;
             }
 
-            var minY = ss.GlobalDialogManager.minHeight + ss.GlobalDialogManager.textEdgePadding + ss.GlobalDialogManager.bottomMargin;
+            var minY = descaled(ss.texture2DCanvas.height - (ss.GlobalDialogManager.minHeight + ss.GlobalDialogManager.textEdgePadding + ss.GlobalDialogManager.bottomMargin));
 
-            if (descaled(ss.texture2DCanvas.height) - this.activeGeometry.textBacking.unscaledY < minY) {
+            if (this.activeGeometry.textBacking.unscaledY < minY) {
                 this.activeGeometry.textBacking.unscaledY = descaled(ss.texture2DCanvas.height) - minY;
                 this.activeGeometry.textBacking.y = ss.texture2DCanvas.height - scaled(minY);
             }
 
             var currentY = this.activeGeometry.textBacking.unscaledY + ss.GlobalDialogManager.textEdgePadding;
-            for (var i = 0; i < this.activeGeometry.items.length; i++)
-            {
+            for (var i = 0; i < this.activeGeometry.items.length; i++) {
                 this.activeGeometry.items[i].setPosition(
                     ss.GlobalDialogManager.textEdgePadding + ss.GlobalDialogManager.leftMargin,
                     ss.GlobalDialogManager.textLinePadding + currentY
@@ -529,7 +528,7 @@ ig.module(
                     ss.texture2DContext.fillText(
                         lines[j],
                         this.activeGeometry.items[i].x
-                        + scaled(this.activeGeometry.items[i].isChoice ? ss.GlobalDialogManager.choiceCursorPadding : 0),
+                            + scaled(this.activeGeometry.items[i].isChoice ? ss.GlobalDialogManager.choiceCursorPadding : 0),
                         this.activeGeometry.items[i].y
                             - scaled(ss.GlobalDialogManager.textLinePadding)
                             + ( j * scaled( ss.GlobalDialogManager.textSize + ss.GlobalDialogManager.textLinePadding))
@@ -550,17 +549,19 @@ ig.module(
                 && this.activeMoment.choices instanceof Array
                 && this.activeMoment.choices.length > 0)
             {
-                if ( anyUpReleased() || anyLeftReleased() )
-                {
+                if (ss.GlobalDialogManager.inputNavDelayTimer.delta() < 0) {
+                    //NOTHING!
+                } else if ( anyUpPressed() || anyLeftPressed() ) {
                     var proposedIndex = this.selectedChoiceIndex -1;
                     if (proposedIndex >= 0) this.selectedChoiceIndex = proposedIndex;
-                }
 
-                if ( anyDownReleased() || anyRightReleased()  )
-                {
+                    ss.GlobalDialogManager.inputNavDelayTimer.set(0.1);
+                } else  if ( anyDownPressed() || anyRightPressed()  ) {
                     var proposedIndex = this.selectedChoiceIndex +1;
                     var totalItems = this.activeMoment.choices.length;
                     if (proposedIndex < totalItems) this.selectedChoiceIndex = proposedIndex;
+
+                    ss.GlobalDialogManager.inputNavDelayTimer.set(0.1);
                 }
 
                 var mouseInfo = ss.GlobalDialogManager.cursor.update(this.activeGeometry.items.slice(1), this.selectedChoiceIndex);
@@ -617,7 +618,7 @@ ig.module(
                 } else /* ss.DialogChoiceMoment */ {
                     ig.system.context.drawImage(
                         this._choiceCursorImage,
-                        scaled(ss.GlobalDialogManager.textEdgePadding),
+                        scaled(ss.GlobalDialogManager.textEdgePadding + ss.GlobalDialogManager.leftMargin),
                         this.activeGeometry.items[this.selectedChoiceIndex+1].y - scaled(ss.GlobalDialogManager.textSize / 2)
                     );
                 }

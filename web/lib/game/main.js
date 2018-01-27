@@ -74,10 +74,11 @@ VNGGJ2018 = ig.Game.extend({
         ss.GlobalDialogManager.textEdgePadding = 10;
         ss.GlobalDialogManager.textLinePadding = 10;
         ss.GlobalDialogManager.outlineThickness = 2;
+        ss.GlobalDialogManager.choiceCursorPadding= 30;
         ss.GlobalDialogManager.outlineColor = hexToRgbA(GameColors.DialogBGOutline);
         ss.GlobalDialogManager.bgColor = hexToRgbA(GameColors.DialogBG);
         ss.GlobalDialogManager.fontColor = hexToRgbA(GameColors.DialogFG);
-        ss.GlobalDialogManager.minHeight = 100;
+        ss.GlobalDialogManager.minHeight = 1000;
     },
 
     loadMainMenu: function()

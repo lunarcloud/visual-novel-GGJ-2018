@@ -12,10 +12,12 @@ InkStory = ig.Class.extend({
 
     name: "Speech",
     ink: undefined,
-    commonAction: undefined,
+    commonTextAction: undefined,
+    commonChoiceAction: undefined,
     currentPortrait: undefined,
     portraitCache: {},
     currentBackground: undefined,
+    dialogManager: undefined,
     backgroundCache: {},
 
     init: function() {
@@ -25,14 +27,20 @@ InkStory = ig.Class.extend({
 
         var inkstory = this;
 
-        this.commonAction = new ss.DialogAction(function() {
+        this.commonTextAction = new ss.DialogAction(function() {
             if (inkstory.ink.isEnded()) {
                 this.setNextMoment(null);
                 return inkstory.end();
             }
 
-            var moment = inkstory.getNextMoment(0);
-            this.setNextMoment(moment);
+            this.setNextMoment(inkstory.getNextMoment());
+        });
+        this.commonChoiceAction = new ss.DialogAction(function(choiceIndex) {
+            if (inkstory.ink.isEnded()) {
+                this.setNextMoment(null);
+                return inkstory.end();
+            }
+            this.setNextMoment(inkstory.getNextMoment(choiceIndex));
         });
 
         this.ink.tagHandlers["portrait"] = function(key, character, position) {
@@ -60,8 +68,13 @@ InkStory = ig.Class.extend({
         };
     },
 
+    setDialogManager: function(manager) {
+        this.dialogManager = manager;
+    },
+
     getNextMoment: function(choiceIndex) {
         this.ink.continue(choiceIndex);
+
         if (typeof(this.currentPortrait) === "undefined") {
             console.log("☺️ -");
         } else {
@@ -85,11 +98,25 @@ InkStory = ig.Class.extend({
                 }
             }
         }
-        var moment = new ss.DialogTextMoment(
-            sizedText,
-            undefined, //CutscenesCharacters.emperor.get('talk', 'right')
-            this.commonAction
-        );
+        var choicesTexts = this.ink.getChoices();
+        if (choicesTexts.length == 0) {
+            var moment = new ss.DialogTextMoment(
+                sizedText,
+                undefined,
+                this.commonTextAction
+            );
+        } else {
+            var actions = [];
+            for (var i = 0; i < choicesTexts.length; i++) {
+                actions.push(this.commonChoiceAction);
+            }
+            var moment = new ss.DialogChoiceMoment(
+                sizedText,
+                undefined,
+                choicesTexts,
+                actions
+            );
+        }
         return moment;
     },
 
