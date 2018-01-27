@@ -102,6 +102,8 @@ ig.module(
                 /* padding */ undefined // default
             ));
 
+            return this.options = options; // TODO remove if you implement more screens
+
             options[menu.Page.MAIN].push(new ss.MenuOption(
                 /* menu */ menu,
                 /* textGetter */ function() { return ig.i18n().MainMenu.Main["Load"]; },
