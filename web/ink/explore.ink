@@ -6,7 +6,7 @@ Type:   Ocielle
 
 == Explore ==
 
-{not did_something_today: You sit in the park in Astam Junction's old district, | You head back to the park for a bit, } thinking of what to do with your time.
+{not did_something_today: You sit in the park in Astam Junction's old district, | You head back to the park for a bit, } thinking of what to do with your time. #portrait:player
   * [visit the chocolatier] -> did_something_today (-> chocolatier)
   * {not sister.visit} [visit your sister] -> did_something_today (-> sister )
   * {sister.visit} [visit your sister, again] -> sister.follow_up

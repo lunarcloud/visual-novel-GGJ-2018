@@ -22,10 +22,13 @@ var story = new inkjs.Story(storyContent);
 do {
     do {
         story.Continue();
-        console.log(story.currentText);
+        for (var i = 0; i < story.currentTags.length; i++) {
+            console.log("#" + story.currentTags[i]);
+        }
+        console.log("\t" + story.currentText);
     } while (story.canContinue);
-    for (var i = 0; i < story.currentChoices.length; ++i) {
-        console.log(" * " + story.currentChoices[i].text);
+    for (var i = 0; i < story.currentChoices.length; i++) {
+        console.log("\t\t* " + story.currentChoices[i].text);
     }
     if (story.currentChoices.length > 0) {
         story.ChooseChoiceIndex(0);
