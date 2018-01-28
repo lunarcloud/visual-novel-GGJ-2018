@@ -1,4 +1,4 @@
-== Day4 ==  
+== Day4 ==
 #portrait:none
 #music:hall3
 #background:desk
@@ -48,7 +48,7 @@ A jewelry store is robbed. Sergeant Briggs and Officer Custer are on the scene.
 = briggs
 #portrait:telegraph
 
-Been talking to witnesses. No perp sightings, but we've found an out-of-place handkerchief on the window sill, deep blue. 
+Been talking to witnesses. No perp sightings, but we've found an out-of-place handkerchief on the window sill, deep blue.
 
 {custer: -> afterall | -> menu}
 
@@ -77,9 +77,28 @@ I just spoke with the proprietor. They're still cleaning up, not sure if anythin
 #portrait:none
 That seems to be all the facts, then.
 
-Telegraph received. “It is all for you”. It is address to nobody.
+#portrait:francis
+"Hey, Sergeant, they wanted me to give you this. They found this at the scene."
+"My watch!"
+"Looks to be in working order, sir."
+"But wait, wouldn't procedure dictate this be in the evidence—"
+Francis sneezes and pats his pockets, looking for a hankercheif.
+"Here, take mine."
+"Thanks, sir."
+"This is heavy, concerning stuff. These crimes are cutting very close to home."
+"I quite agree with you. Oh!"
+"That telegraph again?"
+"Yes."
+You look at the message, no address or name, just:
+'It was always for you'
 
- #background:home
+"Thank you, Francis."
+#portrait:none
+
+#background:home
+You watch your back on the way home. 
+You could swear you saw a waifish shadow follow you.
+What does one do? When you are the police and you feel unsafe?
 
 -> Day5
- 
+

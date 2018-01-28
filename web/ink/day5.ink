@@ -1,12 +1,23 @@
 == Day5 ==  
 #portrait:none
 #music:hall4
-#background:desk
+#background:home
 
 Day 5#title
 
-Lt. Gerald Hughes hands you a note.
-*[Open the note]-> note
+You woke up at a reasonable time, watch ticking nicely, but you found it hard to pull yourself out of bed after the stress this week's work has put you under.
+{Day1.greet_francis: At least you could look forward to your conversations with your assistant. }
+Francis was the most overly-helpful employee at the station you'd ever seen.
+{not Day1.greet_francis: It was often a bit overkill. Nice kid, but misguided. }
+
+When you made it to the office, the building was unusually dead. The lieutenant wasn't there, 
+Not even Francis was in at work today.
+"Where is everyone?" you say to yourself.
+
+#background:desk
+A note was left on your desk...
+
+-> menu
 
 = note
 #portrait:note
@@ -18,12 +29,13 @@ Officer Custer was shot, taken to the hospital. I am personally looking after hi
 = menu
 
 #portrait:none #dailymenu:day5
-+ [Note] -> note
-* [SgtBriggs] -> briggs
-* [SgtDoherty] -> doherty
-* [OffWiley] -> wiley
-* [LtHughes] -> hughes
-* {CHOICE_COUNT() == 1} [Continue] -> afterall
++ {note} [Note] -> note
+* {note} [SgtBriggs] -> briggs
+* {note} [SgtDoherty] -> doherty
+* {note} [OffWiley] -> wiley
+* {note} [LtHughes] -> hughes
+* {note and CHOICE_COUNT() == 1} [Continue] -> afterall
+* {not note} [Note] -> note
 
 = briggs
 
