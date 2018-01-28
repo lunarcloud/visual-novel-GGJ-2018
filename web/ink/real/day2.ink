@@ -1,4 +1,6 @@
 == Day2Flower ==  
+#music:hall2
+
 The storefront of a flower shop is shattered. Sergeant Briggs and Officer Custer are on the scene.
 	Briggs is talking to the owner
 A brick was used to break in the front window. Not sure if anything was taken, a lot of stuff broken
@@ -49,6 +51,8 @@ aoeu
 -> Day3
 
 == Day2Fire ==  
+#music:hall2
+
 
 TEST
 

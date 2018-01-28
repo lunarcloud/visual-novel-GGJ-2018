@@ -1,4 +1,6 @@
 == Day5 ==  
+#music:hall4
+
 
 Lt. Gerald Hughes hands you a note.
 -> note
@@ -38,6 +40,7 @@ aoeu
 aoeu
 -> menu
 
+#music:hall5
 {Day1.greet_francis: -> Day5.obsessed | -> Day5.snubbed}
 
 = obsessed

@@ -59,12 +59,13 @@ InkStory = ig.Class.extend({
             inkstory.currentBackground = name == null || name == "none" ? undefined : name;
         };
         this.ink.tagHandlers["music"] = function(key, title) {
-            console.debug("🎵 " + title);
-            ig.music.play(title);
-        };
-
-        this.ink.tagLackHandlers["portrait"] = function() {
-            inkstory.currentPortrait = undefined;
+            if (title in ig.music.namedTracks) {
+                console.debug("🎵 " + title);
+            } else {
+                console.debug("🎵 ??" + title);
+                return;
+            }
+            if (ig.music.currentTrack !== ig.music.namedTracks[title]) ig.music.play(title);
         };
     },
 

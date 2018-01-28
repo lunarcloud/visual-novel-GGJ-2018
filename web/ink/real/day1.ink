@@ -3,7 +3,8 @@ First Day, big decision
 */
 
  == Day1 ==
- 
+#music:hall1
+
 You wake up, still tired from not having slept well.
 “Maybe the police can do without their switchboard today,” you think briefly.
 Slowly, you get out of bed and prepare to set off for work.

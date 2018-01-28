@@ -34,7 +34,13 @@ VNGGJ2018 = ig.Game.extend({
     fadeOutTimer: undefined,
 
     music: {
-        menu: new ig.Sound( 'media/music/Kevin_MacLeod_-_Carefree.*', false)
+        menu: new ig.Sound( 'media/music/Jahzzar - Airship Fury.*', false),
+        hall: new ig.Sound( 'media/music/Kevin MacLeod - Hall of the Mountain King.*', false),
+        hall1: new ig.Sound( 'media/music/Kevin MacLeod - Hall of the Mountain King - 1.*', false),
+        hall2: new ig.Sound( 'media/music/Kevin MacLeod - Hall of the Mountain King - 2.*', false),
+        hall3: new ig.Sound( 'media/music/Kevin MacLeod - Hall of the Mountain King - 3.*', false),
+        hall4: new ig.Sound( 'media/music/Kevin MacLeod - Hall of the Mountain King - 4.*', false),
+        hall5: new ig.Sound( 'media/music/Kevin MacLeod - Hall of the Mountain King - 5.*', false)
     },
 
     init: function() {
@@ -45,6 +51,8 @@ VNGGJ2018 = ig.Game.extend({
             ig.music.add( this.music[i], i);
             //ig.music.volume = 0.4;
         }
+        ig.music.volume = 1;
+        ig.music.loop = true;
 
         this.setupDialogManager();
 
@@ -62,6 +70,9 @@ VNGGJ2018 = ig.Game.extend({
         this.logos.run(function() {
             ig.game.fadeInTimer = new ig.Timer(ig.game.fadeInTime);
             ig.game.loadMainMenu();
+            setTimeout(function() {
+                ig.music.play("menu");
+            }, 400);
         }, true);
     },
 
@@ -129,7 +140,7 @@ VNGGJ2018 = ig.Game.extend({
         ig.game.sortBy = ig.Game.SORT.POS_Y;
 
         this.fadeOutTimer = new ig.Timer(this.fadeOutTime);
-        ig.music.fadeOut();
+        //ig.music.fadeOut();
         setTimeout(function() {
 
             if (location.search.length > 0) ig.game.loadLevel(self["Level"+location.search.replace("?level=","")]);
