@@ -71,7 +71,7 @@ InkStory = ig.Class.extend({
         };
 
         this.ink.tagHandlers["dailymenu"] = function(key, day) {
-            inkstory.dailymenu = new DailyMenu(inkstory, parseInt(day.replace(/day/,'')));
+            inkstory.dailymenu = new DailyMenu(inkstory, inkstory.ink.getChoices(), parseInt(day.replace(/day/,'')));
         };
 
 
@@ -80,7 +80,7 @@ InkStory = ig.Class.extend({
     },
 
     dailyMenuChosen: function(option) {
-        var choices = ig.game.getEntitiesByType(EntityInkVisualNovel)[0].cutscene.ink.getChoices();
+        var choices = this.ink.getChoices();
         for (var i = 0; i < choices.length; i++) {
             if (choices[i].toLowerCase().includes(option)) {
                 ss.GlobalDialogManager.dialogIsActive = true;

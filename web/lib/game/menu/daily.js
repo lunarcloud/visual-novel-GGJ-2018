@@ -34,6 +34,7 @@ DailyMenu = ss.Menu.extend({
     useText: false,
 
     inkStory: undefined,
+    inkStoryChoices: undefined,
 
     Page: {
         MAIN : 0
@@ -57,9 +58,10 @@ DailyMenu = ss.Menu.extend({
         note: new ig.Image('media/desk/note.png')
     },
 
-    init: function(inkStory, day)
+    init: function(inkStory, inkStoryChoices, day)
     {
         this.inkStory = inkStory;
+        this.inkStoryChoices = inkStoryChoices;
         this.startBlinkTimer = new ig.Timer();
         this.createMenuOptions();
         ss.GlobalDialogManager.dialogIsActive = false;
@@ -73,6 +75,20 @@ DailyMenu = ss.Menu.extend({
 
         var options = [[]];
 
+        var show = {
+            wiley: false,
+            briggs: false,
+            doherty: false,
+            hughes: false,
+            custer: false
+        };
+        for (var i = 0; i < this.inkStoryChoices.length; i++) {
+            for (var j in show) {
+                if (this.inkStoryChoices[i].toLowerCase().includes(j)) {
+                    show[j] = true;
+                }
+            }
+        }
 
         options[menu.Page.MAIN].push(new ss.MenuImageOption(
             /* menu */ menu,
@@ -84,6 +100,7 @@ DailyMenu = ss.Menu.extend({
             /* y */ ig.system.height / 3
         ));
 
+        if (show.wiley)
         options[menu.Page.MAIN].push(new ss.MenuImageOption(
             /* menu */ menu,
             /* image */ this.images.wiley,
@@ -94,6 +111,7 @@ DailyMenu = ss.Menu.extend({
             /* y */ ig.system.height - 352
         ));
 
+        if (show.briggs)
         options[menu.Page.MAIN].push(new ss.MenuImageOption(
             /* menu */ menu,
             /* image */ this.images.briggs,
@@ -104,6 +122,7 @@ DailyMenu = ss.Menu.extend({
             /* y */ ig.system.height - 352
         ));
 
+        if (show.doherty)
         options[menu.Page.MAIN].push(new ss.MenuImageOption(
             /* menu */ menu,
             /* image */ this.images.doherty,
@@ -116,13 +135,14 @@ DailyMenu = ss.Menu.extend({
 
         var fourthX = ig.system.width - 192;
         var fourthY = ig.system.height - 192;
-        if (this.day == 5) {
+        if (show.hughes) {
             options[menu.Page.MAIN].push(new ss.MenuImageOption(menu, this.images.hughes,
                 /* action */ function() {
                 menu.inkStory.dailyMenuChosen("hughes");
                 }, fourthX, fourthY
             ));
-        } else {
+        }
+        if (show.custer) {
             options[menu.Page.MAIN].push(new ss.MenuImageOption(menu, this.images.custer,
                 /* action */ function() {
                 menu.inkStory.dailyMenuChosen("custer");
