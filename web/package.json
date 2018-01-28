@@ -5,7 +5,7 @@
     "orientation": "landscape",
     "nodejs": false,
     "name": "switchboard-copper",
-    "version": "0.6.0",
+    "version": "0.8.0",
     "app_name": "Switchboard Copper",
     "app_name_short": "SwitchboardCopper",
     "app_company": "Citizens of Antiford LLC",
