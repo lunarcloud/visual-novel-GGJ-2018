@@ -31,7 +31,11 @@ ss.MenuImageOption = ss.MenuOption.extend({
 
 DailyMenu = ss.Menu.extend({
 
-    useText: false,
+    useTrueFont: true,
+    trueFont: new ss.TrueFont("Cavalcade", 36, "#666", "/fonts/Cavalcade/Cavalcade-Regular.css"),
+
+    useSideCursorImage: true,
+    sideCursorImage: new ig.Image("media/side-cursor.png"),
 
     inkStory: undefined,
     inkStoryChoices: undefined,
