@@ -1,5 +1,7 @@
 == Day4 ==  
-#music:hall3 #background:desk
+#portrait:none
+#music:hall3
+#background:desk
 
 
 A jewelry store is robbed. Sergeant Briggs and Officer Custer are on the scene.

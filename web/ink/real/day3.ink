@@ -1,5 +1,7 @@
 == Day3 ==  
-#music:hall2 #background:desk
+#portrait:none
+#music:hall2
+#background:desk
 
 You arrive at the station just as Francis is setting his things down.
 

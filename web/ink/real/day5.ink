@@ -1,5 +1,7 @@
 == Day5 ==  
-#music:hall4 #background:desk
+#portrait:none
+#music:hall4
+#background:desk
 
 
 Lt. Gerald Hughes hands you a note.

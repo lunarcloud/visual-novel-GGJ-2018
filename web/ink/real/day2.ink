@@ -1,5 +1,7 @@
 == Day2Flower ==  
-#music:hall2 #background:desk
+#portrait:none
+#music:hall2 
+#background:desk
 
 Day 2
 
@@ -90,7 +92,9 @@ After a long walk, you arrive at home to find a bundle of flowers on the mat in 
 -> Day3
 
 == Day2Fire ==  
-#music:hall2 #background:desk
+#portrait:none
+#music:hall2
+#background:desk
 
 
 The next morning you find your desk just as you had left it the day before.

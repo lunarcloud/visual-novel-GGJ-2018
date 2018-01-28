@@ -3,7 +3,9 @@ First Day, big decision
 */
 
  == Day1 ==
-#music:hall1 #background:home
+#music:hall1
+#background:home
+#portrait:none
 
 Day 1
 
@@ -28,14 +30,12 @@ My watch has been running behind lately."
 “I have brought you a chilled tea from the shop around the corner.”
 “Thank you, Francis. That is my favorite shop.”
 “Good to know.”
-#portrait:none
 -> after_greet
 
 = after_greet
 #background:desk
 Francis hands you a note.
 
-#portrait:francis
 "Here is a note for you from Lt. Hughes. It is regarding an incident this morning. I think he wants you to moniter the situation."
 
 *[Open note]-> note
