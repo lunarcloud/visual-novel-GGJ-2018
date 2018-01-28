@@ -33,7 +33,7 @@ ig.module('game.i18n')
     ig.langs = new (ig.Class.extend({
 
         enUS: new Lang(true, "US English", "enUS", {
-            "GameTitle": "Visual Novel GGJ 2018",
+            "GameTitle": "Switchboard Copper",
             "menuback": "back",
             "PauseMenu": {
                 "Main": {

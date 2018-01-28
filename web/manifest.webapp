@@ -1,26 +1,11 @@
 {
-  "short_name": "GerstenbergHeroes",
-  "name": "Gerstenberg Heroes",
-  "description": "Prush Civil War! You are a small regiment, left behind to clean up in the imperial war against the treasonous technocratic confederates!",
-  "version": "1.0.3",
+  "short_name": "SwitchboardCopper",
+  "name": "Switchboard Copper",
+  "description": "A series of more and more interesting crimes comes through the station as you play a switchboard policeman in the fictional world of Antiford.",
+  "version": "0.5.0",
   "icons": [
     {
-      "src": "/media/icons/badger-bros-icon-128.png",
-      "sizes": "128x128",
-      "type": "image/png"
-    },
-    {
-      "src": "/media/icons/badger-bros-icon-144.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-    {
-      "src": "/media/icons/badger-bros-icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/media/icons/badger-bros-icon-512.png",
+      "src": "/media/icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
