@@ -40,7 +40,7 @@ cp SwitchboardCopperGame.nsi ../dist/
 cp 64bit.nsh ../dist/
 cp 32bit.nsh ../dist/
 
-cp ../media/icon.png ../dist/
+cp ../media/icon.png ../dist/game.png
 cp ../media/game.ico ../dist/
 cp ../media/game.ico ../dist/installer.ico
 
