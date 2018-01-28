@@ -1,7 +1,7 @@
 End User License Agreement
 ==========================
 
-  1. Under this Software License Agreement (the "Agreement"), Samuel James Sarette (the "Vendor") grants to the user (the "Licensee") a non-exclusive and non-transferable license (the "License") to use TODO (the "Software").
+  1. Under this Software License Agreement (the "Agreement"), Samuel James Sarette (the "Vendor") grants to the user (the "Licensee") a non-exclusive and non-transferable license (the "License") to use Switchboard Copper (the "Software").
 
   2. "Software" includes the executable computer programs and any related printed, electronic and online documentation and any other files that may accompany the product.
 

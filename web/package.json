@@ -1,0 +1,39 @@
+{
+    "main": "index.html",
+    "offline_enabled": true,
+    "display": "fullscreen",
+    "orientation": "landscape",
+    "nodejs": false,
+    "name": "switchboard-copper",
+    "version": "0.5.0",
+    "app_name": "Switchboard Copper",
+    "app_name_short": "SwitchboardCopper",
+    "app_company": "Citizens of Antiford LLC",
+    "app_company_short": "antiford",
+    "app_description" : "A series of more and more interesting crimes comes through the station as you play a switchboard policeman in the fictional world of Antiford.",
+    "package_maintainer": "Samuel Sarette <samuelsarette@linux.com>",
+    "app_homepage": "https://www.citizensofantiford.com",
+    "background_color": "#222222",
+    "theme_color": "#222222",
+    "window": {
+        "title": "Switchboard Copper",
+        "position": "center",
+        "fullscreen": false,
+        "transparent": false,
+        "resizable": true,
+        "height": 720,
+        "width": 1280,
+        "icon": "media/icon-512.png",
+        "mac_icon": "media/icon-512.png",
+        "exe_icon": "media/icon-512.png"
+    },
+    "webkit": {
+        "plugin": false,
+        "page-cache": false,
+        "java": false
+    },
+    "permissions": [
+      "storage",
+      "app.window.fullscreen"
+    ]
+}

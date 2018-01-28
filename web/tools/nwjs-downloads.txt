@@ -1,0 +1,5 @@
+http://dl.nwjs.io/v0.27.4/nwjs-v0.27.4-win-x64.zip
+http://dl.nwjs.io/v0.27.4/nwjs-v0.27.4-win-ia32.zip
+http://dl.nwjs.io/v0.27.4/nwjs-v0.27.4-osx-x64.zip
+http://dl.nwjs.io/v0.27.4/nwjs-v0.27.4-linux-x64.tar.gz
+http://dl.nwjs.io/v0.27.4/nwjs-v0.27.4-linux-ia32.tar.gz

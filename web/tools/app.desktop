@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Categories=Game;
+Name=Application Launcher
+Comment=aoeu
+Exec=/opt/aoeu/dist
+Icon=/opt/aoue/icon.png
