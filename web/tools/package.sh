@@ -93,14 +93,14 @@ mv "Install SwitchboardCopper.exe" "../output/Install Switchboard Copper $VERSIO
 rm -r SwitchboardCopperGame
 
 ## Windows 32bit App
-# unzip ../tools/downloads/nwjs-*-win-ia32.zip -d ../dist
-# mv nwjs-*-win-ia32 SwitchboardCopperGame
-# cp -r package.nw SwitchboardCopperGame/
-# mv SwitchboardCopperGame/nw.exe SwitchboardCopperGame/SwitchboardCopperGame.exe
-# chmod +x SwitchboardCopperGame/SwitchboardCopperGame
-# bash build-windows-installer.sh 32
-# mv "Install SwitchboardCopper.exe" "../output/Install Switchboard Copper $VERSION (32bit).exe"
-# rm -r SwitchboardCopperGame
+unzip ../tools/downloads/nwjs-*-win-ia32.zip -d ../dist
+mv nwjs-*-win-ia32 SwitchboardCopperGame
+cp -r package.nw SwitchboardCopperGame/
+mv SwitchboardCopperGame/nw.exe SwitchboardCopperGame/SwitchboardCopperGame.exe
+chmod +x SwitchboardCopperGame/SwitchboardCopperGame
+bash build-windows-installer.sh 32
+mv "Install SwitchboardCopper.exe" "../output/Install Switchboard Copper $VERSION (32bit).exe"
+rm -r SwitchboardCopperGame
 
 rm -r ../dist/
 exit
