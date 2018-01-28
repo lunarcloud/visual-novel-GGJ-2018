@@ -97,4 +97,4 @@ That seems to be all the facts, then.
 "Well Francis, that *is* rather odd. But it's been a long day. I'll be heading home now. Have a good night." #background:home
 "Good night, Sergeant."
 
-{not greet_francis: -> Day2Fire | -> Day2Flower}
+->Day2

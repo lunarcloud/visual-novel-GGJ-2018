@@ -1,4 +1,4 @@
-== Day2Flower ==
+== Day2 ==
 #portrait:none
 #music:hall2
 #background:desk
@@ -19,19 +19,26 @@ Francis walks away, but soon returns.
 #portrait:francis
 "There is another note for you from the lieutenant. He wants you to follow up with the team investigating this crime."
 
-*[Open the note]-> note
+{Day1.greet_francis: * [Open the note] -> normalnote | * [Open the note] -> firenote}
 
-= note
+= normalnote
 #portrait:note
 
-A flower shop on High Top Road was broken into early this morning. Sergeant Briggs and Officer Custer are investigating.
+A flower shop on High Top Road was broken into early this morning. Sergeant Briggs and Officer Wiley are investigating.
+
+-> menu
+
+= firenote
+#portrait:note
+
+A flower shop on High Top Road was broken into early this morning. Sergeant Briggs and Officer Wiley are investigating.
 
 -> menu
 
 = menu
 
 #portrait:none #dailymenu:day2
-+ [Note] -> note
+{Day1.greet_francis: + [Note] -> normalnote | + [Note] -> firenote}
 * [SgtBriggs] -> briggs
 * [SgtDoherty] -> doherty
 * [OffWiley] -> wiley
@@ -54,7 +61,7 @@ A flower shop on High Top Road was broken into early this morning. Sergeant Brig
 = wiley
 #portrait:telegraph
 
-"I am not at the tea house. I think Officer Custer is there."
+"I'm allergic to flowers, so they let me off the case. I think Officer Custer is there."
 
 -> menu
 
@@ -65,9 +72,12 @@ A flower shop on High Top Road was broken into early this morning. Sergeant Brig
 
 {briggs: -> afterall | -> menu}
 
-->afterall
-
 = afterall
+
+{Day1.greet_francis: -> normalafterall | -> fireafterall}
+
+= normalafterall
+
 #portrait:none
 That seems to be all the facts, then.
 
@@ -95,5 +105,30 @@ After a long walk, you arrive at home to find a bundle of flowers on the mat in 
 
 "How odd," you think aloud.
 
+-> Day3
+
+= fireafterall
+
+#portrait:none
+That seems to be all the facts, then.
+
+#portrait:francis
+"Well, Francis. Another long day. Are there any other telegraphs?"
+
+"It appears that there is one more..."
+
+"Who is it for?"
+
+"There is no name. It just says
+'It was always for you'
+This is the second one now."
+
+"Again with the odd one? I wonder who is sending them. It seems a waste to send only that.
+
+Oh, well. I suppose I will head on home now." #background:home
+
+"Have a good night sergeant."
+
+"You as well."
 
 -> Day3
