@@ -1,5 +1,5 @@
 == Day4 ==  
-#music:hall3
+#music:hall3, background:desk
 
 
 A jewelry store is robbed. Sergeant Briggs and Officer Custer are on the scene.
@@ -12,7 +12,7 @@ End of day. Telegraph received. “It is all for you”. It is address to nobody
 
 
 Lt. Gerald Hughes hands you a note.
--> note
+*[Open note]-> note
 
 = note
 
@@ -25,7 +25,7 @@ Blardy blah.
 #dailymenu:day4
 + [Note] -> note
 * [SgtBriggs] -> briggs
-* [SgtDoherty] -> dohrety
+* [SgtDoherty] -> doherty
 * [OffWiley] -> wiley
 * [OffCuster] -> custer
 
@@ -34,7 +34,7 @@ Blardy blah.
 aoeu
 -> menu
 
-= dohrety
+= doherty
 
 aoeu
 -> menu

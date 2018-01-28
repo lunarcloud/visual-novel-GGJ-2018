@@ -3,34 +3,39 @@ First Day, big decision
 */
 
  == Day1 ==
-#music:hall1
+#music:hall1, background:home
+
+Day 1
 
 You wake up, still tired from not having slept well.
-“Maybe the police can do without their switchboard today,” you think briefly.
+“Maybe the police can do without their switchboard officer today,” you think briefly.
 Slowly, you get out of bed and prepare to set off for work.
 
 The long trudge to the police station was made better by the shade cast by a rare cloudy day. Antiford does not get many overcast days.
 
-The office is almost stiflingly hot. You set your bag down.
+The office is almost stiflingly hot. You set your bag down. Your assistant, Francis, is sitting at his desk, filing through some papers.
 
-* Greet Francis [] -> greet_francis
-* Ignore Francis [] -> after_greet
+* [Greet Francis] -> greet_francis
+* [Ignore Francis] -> after_greet
 
 = greet_francis
 #portrait:francis
 
 “Good Morning, Francis. How are you?”
-“I am well, sir. You are a little late. Did you have a difficult morning?
-“Not too difficult. My watch has been running behind lately.
+“I am well, Sergeant. You are a little late. Did you have a difficult morning?
+“Not too difficult. And so I am.
+My watch has been running behind lately."
 “I have brought you a chilled tea from the shop around the corner.”
 “Thank you, Francis. That is my favorite shop.”
-“Good to know, sir.”
+“Good to know.”
 #portrait:none
 -> after_greet
 
 = after_greet
+Francis hands you a note.
 
-You are handed a note from Lieutenant Hughes
+#portrait:Francis
+"Here is a note for you from Lt. Hughes. It is regarding an incident this morning. I think he wants you to moniter the situation."
 
 *[Open note]-> note
 
@@ -73,8 +78,12 @@ A tea house on Mallory Lane was robbed at gunpoint. Sergeant Briggs and Officer 
 ->afterall
 
 = afterall
+#portrait:francis
 
-"Well Francis, It was a long day. I will be heading home now."
-"Good night, sir."
+"Sergeant, we received one more telegraph."
+"Who is it for?"
+"It's not for anyone. There's no name. It just says 'It was always for you."
+"Well Francis, that is rather odd. But it has been a long day. I will be heading home now. Have a good night."
+"Good night, Sergeant."
 
-{not greet_francis: -> Day2Flower | -> Day2Fire}
+{not greet_francis: -> Day2Fire | -> Day2Flower}

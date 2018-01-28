@@ -1,9 +1,9 @@
 == Day5 ==  
-#music:hall4
+#music:hall4, background:desk
 
 
 Lt. Gerald Hughes hands you a note.
--> note
+*[Open note]-> note
 
 = note
 
@@ -16,7 +16,7 @@ Blardy blah.
 #dailymenu:day5
 + [Note] -> note
 * [SgtBriggs] -> briggs
-* [SgtDoherty] -> dohrety
+* [SgtDoherty] -> doherty
 * [OffWiley] -> wiley
 * [LtHughes] -> hughes
 
@@ -25,7 +25,7 @@ Blardy blah.
 aoeu
 -> menu
 
-= dohrety
+= doherty
 
 aoeu
 -> menu

@@ -1,21 +1,26 @@
 == Day2Flower ==  
-#music:hall2
+#music:hall2, background:desk
 
-The storefront of a flower shop is shattered. Sergeant Briggs and Officer Custer are on the scene.
-	Briggs is talking to the owner
-A brick was used to break in the front window. Not sure if anything was taken, a lot of stuff broken
-	Custer is talking to a witness
-		A thin man was seen running from the scene. Has short brown hair.
+Day 2
 
-End of day. Telegraph received. “It is all for you”. It is address to nobody.
+The next morning you find your desk just as you had left it the day before.
 
+#portrait:francis
+"Good morning, Sergeant."
+"Good morning, Francis.
+And before you say anything, I know that I am late again. I really must do something about my watch. Perhaps I will drop it off to be serviced."
+"That would be a smart idea."
 
-Lt. Gerald Hughes hands you a note.
--> note
+#portrait:none
+Francis walks away, but soon returns.
+#portrait:francis
+"There is another note for you from the Lt. He wants you to follow up with the team investigating this crime."
+
+*[Open note]-> note
 
 = note
 
-Blardy blah.
+A flower shop on High Top Road was broken into early this morning. Sergeant Briggs and Officer Custer are investigating.
 
 -> menu
 
@@ -24,29 +29,58 @@ Blardy blah.
 #dailymenu:day2
 + [Note] -> note
 * [SgtBriggs] -> briggs
-* [SgtDoherty] -> dohrety
+* [SgtDoherty] -> doherty
 * [OffWiley] -> wiley
 * [OffCuster] -> custer
 
 = briggs
 
-aoeu
--> menu
+"The proprietor says that a brick was used to break in the front window. Not sure if anything was taken. There is considerable damage."
 
-= dohrety
+{custer: -> afterall | -> menu}
 
-aoeu
+= doherty
+
+"What are you contacting me for? I am no where near the flower shop. I think that was assigned to Sgt. Briggs."
+
 -> menu
 
 = wiley
 
-aoeu
+"I am not at the tea house. I think Officer Custer is there."
+
 -> menu
 
 = custer
 
-aoeu
--> menu
+"A witness states that they saw a thin man with short brown hair running away from the scene. He had a bundle of flowers in his hands."
+
+{briggs: -> afterall | -> menu}
+
+->afterall
+
+= afterall
+#portrait:francis
+"Well, Francis. Another long day. Are there any other telegraphs?"
+
+"It appears that there is one more..."
+
+"Who is it for?"
+
+"There is no name. It just says 'It was always for you'. This is the second one now."
+
+"That is odd. I wonder who is sending them. It seems a waste to send only that.
+
+Oh, well. I suppose I will head on home now."
+
+"Have a good night sergeant."
+
+"You as well."
+
+After a long walk, you arrive at home to find a bundle of flowers on the mat in front of your door.
+
+"How odd," you think aloud.
+
 
 -> Day3
 
@@ -54,45 +88,77 @@ aoeu
 #music:hall2
 
 
-TEST
+The next morning you find your desk just as you had left it the day before.
 
+#portrait:francis
+"Good morning, Sergeant."
+"Good morning, Francis.
+And before you say anything, I know that I am late again. I really must do something about my watch. Perhaps I will drop it off to be serviced."
+"That would be a smart idea."
 
-Lt. Gerald Hughes hands you a note.
--> note
+#portrait:none
+Francis walks away, but soon returns.
+#portrait:francis
+"There is another note for you from the Lt. He wants you to follow up with the team investigating this crime."
+
+*[Open note]-> note
 
 = note
 
-Blardy blah.
+Before dawn this morning, the tea house on Mallory Lane was burned down. Sgt. Briggs and Officer Custer are investigating.
 
 -> menu
 
 = menu
 
-#dailymenu:day1
+#dailymenu:day2
 + [Note] -> note
 * [SgtBriggs] -> briggs
-* [SgtDoherty] -> dohrety
+* [SgtDoherty] -> doherty
 * [OffWiley] -> wiley
 * [OffCuster] -> custer
 
 = briggs
 
-aoeu
--> menu
+"The owner states that she heard a crash of glass late in the night.
+She came downstairs to the front room of the shop to find it alight.
+She did not see who had done it."
+{custer: -> afterall | -> menu}
 
-= dohrety
+= doherty
 
-aoeu
+"What are you contacting me for? I am no where near the tea house. I think that was assigned to Sgt. Briggs."
 -> menu
 
 = wiley
 
-aoeu
+"I am not at the tea house. I think Officer Custer is there."
 -> menu
 
 = custer
 
-aoeu
--> menu
+"A young boy said that he saw a figure, dressed well, throw a bottle through the window to the tea house.
+Shortly afterward, fire started to spread through the house."
+{briggs: -> afterall | -> menu}
+
+->afterall
+
+= afterall
+#portrait:francis
+"Well, Francis. Another long day. Are there any other telegraphs?"
+
+"It appears that there is one more..."
+
+"Who is it for?"
+
+"There is no name. It just says 'It was always for you'. This is the second one now."
+
+"That is odd. I wonder who is sending them. It seems a waste to send only that.
+
+Oh, well. I suppose I will head on home now."
+
+"Have a good night sergeant."
+
+"You as well."
 
 -> Day3
