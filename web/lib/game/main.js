@@ -21,7 +21,7 @@ ig.module(
 
 ig.Sound.use = [ig.Sound.FORMAT.OGG, ig.Sound.FORMAT.M4A]
 
-VNGGJ2018 = ig.Game.extend({
+SwitchboardCopperGame = ig.Game.extend({
 
     musicEnabled: true,
     localStorage: new ig.localStorage(),
@@ -192,6 +192,6 @@ var gameHeight = gameWidth * (16/9);
 var scale = 1;
 
 ig.System.scaleMode = ig.System.SCALE.SMOOTH;
-ig.main( '#canvas', VNGGJ2018, fps, gameHeight, gameWidth, scale, ig.ImpactSplashLoader);
+ig.main( '#canvas', SwitchboardCopperGame, fps, gameHeight, gameWidth, scale, ig.ImpactSplashLoader);
 
 });
