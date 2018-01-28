@@ -39,7 +39,7 @@ ig.module('game.i18n')
                         "Writing:",
                         "    Justin Thibault, Samuel J Sarette",
                         "Art:",
-                        "    KD Doyle, Samuel J Sarette",
+                        "    KD Doyle",
                         "Music:",
                         "    Hall of the Mountain King - Kevin MacLeod",
                         "    Airship Fury - Jahzzar"],

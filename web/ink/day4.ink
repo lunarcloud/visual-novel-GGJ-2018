@@ -10,7 +10,7 @@ Officer Custer knocks you to the street bumbling his way out of the station.
 
 "Sorry!" he says as he fades into the distance.
 
-You stand up and brush yourself off.
+You stand up and brush yourself off. You can see Francis looking out the window gasping.
 
 By the time you get inside, Francis is already quite busy.
 
