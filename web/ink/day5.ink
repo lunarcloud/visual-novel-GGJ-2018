@@ -39,45 +39,62 @@ Officer Custer was shot, taken to the hospital. I am personally looking after hi
 
 = briggs
 
-aoeu
+{doherty: I know you already heard some of this, but <>}
+I'm here with Sergeant Doherty, and it's pretty crazy to think that one of our own did this.
+{not doherty: Francis attacked Officer Custer.}
+We've got {doherty: Francis | him} locked up in the back of the paddy wagon.
+
 -> menu
 
 = doherty
 
-aoeu
+{briggs: I know you already heard some of this, but <>}
+I'm here with Sergeant Briggs trying to process this.
+{not briggs: Your assistant... Francis... he attacked Officer Custer.}
+If it were up to me, we'd send {briggs: Francis | him} to pleasantville, let him rot in the desert.
+
 -> menu
 
 = wiley
 
-Witnesses say...
+{not doherty: {not briggs: So, Doherty and Briggs have the real details, but... well Francis is in big trouble.}}
+Witnesses say that the young lad jumped Officer Custer as he was leaving his home this morning.
+The boy woke up pretty darn early for this.
+This was not his first rodeo; I suspect he had something to do with some of our recent unsolved crimes.
 
 -> menu
 
 = hughes
 
-aoeu
+Just looking after Officer Custer. He's been cut up and blugeoned. Very graphic.
+I'm going to have the... culprit — dry world — taken to the station for some serious interrogation.
 
 -> menu
 
 = afterall
 #portrait:none
-That seems to be all the facts, then.
+
+The facts don't lie.
+You wonder why Francis did all this.
+
+#music:hall5
+Francis burts into the office screaming: #portrait:francis
+"IT WAS ALWAYS FOR YOU!"
+
+{Day1.greet_francis: "You were the sunshine of my day!" | "WHY WON'T YOU NOTICE ME!!"}
+
+#portrait:none
+
+Doherty, Wiley, and Briggs burst in and tackle Francis to the ground.
+Lieutenant Gerald Hughes walks in holding his gun.
+"You're going away for a very long time, kid."
 
 #background:home
- 
-#music:hall5
-{Day1.greet_francis: -> obsessed | -> snubbed}
 
-= obsessed
+You take the rest of the day off, not sure how to feel about all this.
+As you walk home, you find a piece of paper in your pocket. It read:
 
-test
-
-
--> END
-
-= snubbed
-
-test
+"It was always for you."
 
 -> END
  

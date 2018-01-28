@@ -97,8 +97,8 @@ You look at the message, no address or name, just:
 
 #background:home
 You watch your back on the way home. 
-You could swear you saw a waifish shadow follow you.
-What does one do? When you are the police and you feel unsafe?
+You could swear you saw a waifish shadow follow you. #portrait:shadow
+What does one do? When you are the police and you feel unsafe? #portrait:none
 
 -> Day5
 
