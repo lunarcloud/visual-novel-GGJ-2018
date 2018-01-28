@@ -24,33 +24,22 @@ EntityInkVisualNovel = ss.DialogManagedEntity.extend({
         if ( ig.global.wm ) return;
 
         this.cutscene = new InkStory();
-        this.dialogManager = new ss.DialogManager(this.cutscene.getNextMoment());
-        this.cutscene.setDialogManager(this.dialogManager);
-        this.dialogManager.trigger();
     },
 
     update: function() {
         this.parent();
-        if (this.dialogManager) {
-            this.dialogManager.update();
-        }
+        this.cutscene.update();
     },
 
     draw: function() {
         this.parent();
-        this.cutscene.drawBG();
-        this.cutscene.drawPortrait();
-        if (this.dialogManager) {
-            this.dialogManager.draw();
-        }
+        this.cutscene.draw();
     },
 
     beingTriggered: false,
     trigger: function()
     {
-        if (this.dialogManager) {
-            this.dialogManager.trigger();
-        }
+        this.cutscene.trigger();
     }
 });
 

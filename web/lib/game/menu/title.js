@@ -68,10 +68,7 @@ ig.module(
             var options = [];
             for (var i = 0; i < Object.keys(menu.Page).length; i++ ) options.push([]);
 
-
             var firstYAfterTitle = this.titleFont.textSize + 240;
-
-            //TODO
 
             var nextOptionSpace = function(page)
             {
@@ -102,78 +99,7 @@ ig.module(
                 /* padding */ undefined // default
             ));
 
-            return this.options = options; // TODO remove if you implement more screens
-
-            options[menu.Page.MAIN].push(new ss.MenuOption(
-                /* menu */ menu,
-                /* textGetter */ function() { return ig.i18n().MainMenu.Main["Load"]; },
-                /* action */ function(){ menu.changePage(menu.Page.LOAD);  },
-                /* x */ (ig.system.width + 10) / 2 ,
-                /* y */ nextOptionSpace(menu.Page.MAIN) ,
-                /* alignment */ ig.Font.ALIGN.CENTER,
-                /* padding */ undefined // default
-            ));
-
-            options[menu.Page.MAIN].push(new ss.MenuOption(
-                /* menu */ menu,
-                /* textGetter */ function() { return ig.i18n().MainMenu.Main["Options"]; },
-                /* action */ function(){ menu.changePage(menu.Page.SETTINGS); },
-                /* x */ (ig.system.width + 10) / 2 ,
-                /* y */ nextOptionSpace(menu.Page.MAIN) ,
-                /* alignment */ ig.Font.ALIGN.CENTER,
-                /* padding */ undefined // default
-            ));
-
-            if ( ig.system.isChromeApp || ig.system.isPopup )
-            {
-                options[menu.Page.MAIN].push(new ss.MenuOption(
-                    /* menu */ menu,
-                    /* textGetter */ function() { return ig.i18n().MainMenu.Main["Quit"]; },
-                    /* action */ function(){ menu.changePage(menu.Page.QUITSURE); },
-                    /* x */ (ig.system.width + 10) / 2 ,
-                    /* y */ nextOptionSpace(menu.Page.MAIN) ,
-                    /* alignment */ ig.Font.ALIGN.CENTER,
-                    /* padding */ undefined // default
-                ));
-
-                options[menu.Page.QUITSURE].push(new ss.MenuOption(
-                    /* menu */ menu,
-                    /* textGetter */ function() { return ig.i18n().MainMenu.QuitSure; },
-                    /* action */ undefined,
-                    /* x */ (ig.system.width + 10) / 2 ,
-                    /* y */ nextOptionSpace(menu.Page.QUITSURE) ,
-                    /* alignment */ ig.Font.ALIGN.CENTER,
-                    /* padding */ undefined // default
-                ));
-
-                options[menu.Page.QUITSURE].push(new ss.MenuOption(
-                    /* menu */ menu,
-                    /* textGetter */ function() { return ig.i18n().Answer.yes; },
-                    /* action */ function(){ ig.system.quit(); },
-                    /* x */ (ig.system.width + 10) / 2 ,
-                    /* y */ nextOptionSpace(menu.Page.QUITSURE) ,
-                    /* alignment */ ig.Font.ALIGN.CENTER,
-                    /* padding */ undefined // default
-                ));
-
-                options[menu.Page.QUITSURE].push(new ss.MenuOption(
-                    /* menu */ menu,
-                    /* textGetter */ function() { return ig.i18n().Answer.no; },
-                    /* action */ function(){ menu.pageBack(); },
-                    /* x */ (ig.system.width + 10) / 2 ,
-                    /* y */ nextOptionSpace(menu.Page.QUITSURE) ,
-                    /* alignment */ ig.Font.ALIGN.CENTER,
-                    /* padding */ undefined // default
-                ));
-            }
-
-            // Add back buttons last
-            options[menu.Page.SETTINGS].push(backButton);
-            options[menu.Page.CONTROLS].push(backButton);
-            options[menu.Page.LOAD].push(backButton);
-
-
-            this.options = options;
+            this.options = options; // TODO remove if you implement more screens
         },
 
         update: function()
@@ -219,7 +145,6 @@ ig.module(
 
             if (this.currentPage === this.Page.LOBBY)
             {
-
                 for (var i = 1; i <= this.lastCountedGamepads; i++) {
 
                     this.joinImage[i].draw(

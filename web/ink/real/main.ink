@@ -9,4 +9,4 @@ INCLUDE day5.ink
 
 #background:desk
 
--> Day1
+-> Day1.note

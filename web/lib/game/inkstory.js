@@ -4,7 +4,8 @@ ig.module(
 .requires(
     'impact.entity',
     'plugins.ss.dialog',
-    'plugins.ss.ink'
+    'plugins.ss.ink',
+    'game.menu.daily'
 )
 .defines(function(){
 
@@ -18,6 +19,7 @@ InkStory = ig.Class.extend({
     portraitCache: {},
     currentBackground: undefined,
     dialogManager: undefined,
+    dailymenu: undefined,
     backgroundCache: {},
 
     init: function() {
@@ -67,33 +69,42 @@ InkStory = ig.Class.extend({
             }
             if (ig.music.currentTrack !== ig.music.namedTracks[title]) ig.music.play(title);
         };
+
+        this.ink.tagHandlers["dailymenu"] = function(key, day) {
+            inkstory.dailymenu = new DailyMenu(inkstory, parseInt(day.replace(/day/,'')));
+        };
+
+
+        this.dialogManager = new ss.DialogManager(this.getNextMoment());
+        this.dialogManager.trigger();
     },
 
-    setDialogManager: function(manager) {
-        this.dialogManager = manager;
+    dailyMenuChosen: function(option) {
+        var choices = ig.game.getEntitiesByType(EntityInkVisualNovel)[0].cutscene.ink.getChoices();
+        for (var i = 0; i < choices.length; i++) {
+            if (choices[i].toLowerCase().includes(option)) {
+                ss.GlobalDialogManager.dialogIsActive = true;
+                this.dailymenu = undefined;
+                this.dialogManager = new ss.DialogManager(this.getNextMoment(i));
+            }
+        }
     },
 
     getNextMoment: function(choiceIndex) {
         this.ink.continue(choiceIndex);
-
-        if (typeof(this.currentPortrait) === "undefined") {
-            console.log("☺️ -");
-        } else {
-            console.log("☺️ " + this.currentPortrait.character + " - " + this.currentPortrait.position);
-        }
         var text = this.ink.getText();
         var sizedText = "";
         var needNewline = false;
         for (var i = 0; i < text.length; i++) {
             sizedText += text[i];
-            if (i > 64 && i % 65 === 0) {
+            if (i > 61 && i % 62 === 0) {
                 needNewline = true;
             }
             if (needNewline) {
-                if (/[\s\.?!\-+=]/.test(text[i])) {
+                if (/[\s\.?!\-+=”"']/.test(text[i])) {
                     sizedText += '\n';
                     needNewline = false;
-                } else if ( i !== text.length-1 && i > 71 && i % 72 === 0) {
+                } else if ( i !== text.length-1 && i > 67 && i % 68 === 0) {
                     sizedText += '-\n';
                     needNewline = false;
                 }
@@ -169,6 +180,31 @@ InkStory = ig.Class.extend({
             default:
                 //center
                 return (ig.system.width - width) / 2;
+        }
+    },
+
+    update: function() {
+        if (this.dailymenu) {
+            this.dailymenu.update();
+        } else if (this.dialogManager) {
+            this.dialogManager.update();
+        }
+    },
+
+    draw: function() {
+        this.drawBG();
+        this.drawPortrait();
+        if (this.dailymenu) {
+            this.dailymenu.draw();
+        } else if (this.dialogManager) {
+            this.dialogManager.draw();
+        }
+    },
+
+    trigger: function()
+    {
+        if (this.dialogManager) {
+            this.dialogManager.trigger();
         }
     }
 });

@@ -15,6 +15,7 @@ ig.module(
 
         cursor: new ss.Cursor(),
 
+        useText: true,
         useTrueFont: false,
         useSelectedFont: false,
 

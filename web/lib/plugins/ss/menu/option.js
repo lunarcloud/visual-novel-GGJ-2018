@@ -51,7 +51,9 @@ ig.module(
         {
             if (typeof(menu) !== "object") throw "Must provide menu object";
 
-            if (menu.useTrueFont) {
+            if (menu.useText === false) {
+                //NOTHING
+            } else if (menu.useTrueFont) {
                 if (typeof(menu.trueFont) === "undefined" || menu.trueFont instanceof ss.TrueFont === false) throw "menu.trueFont must be a ss.TrueFont";
             } else {
                 if (typeof(menu.font) === "undefined" || menu.font instanceof ig.Font === false) throw "menu.font must be a ig.Font";
@@ -90,6 +92,8 @@ ig.module(
 
         updateText: function()
         {
+            if (this.menu.useText === false) return;
+
             this.text = this.textGetter();
             if (typeof(this.text) !== "string") {
                 console.error("Option text update failed to produce valid text.");
@@ -158,6 +162,7 @@ ig.module(
                 }
             }
 
+            if (this.menu.useText === false) return;
             if (this.menu.useTrueFont) {
                 if (this.menu.useSelectedFont && this.selected ) {
                     this.menu.selectedTrueFont.draw(this.text, this.x, this.y, this.alignment, this.alpha, undefined, false);
