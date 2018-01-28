@@ -48,7 +48,7 @@ InkStory = ig.Class.extend({
         this.ink.tagHandlers["portrait"] = function(key, character, position) {
             if (!position) {
                 if (character.toLowerCase() == "telegraph") {
-                    position = "right";
+                    position = "left";
                 } else {
                     position = "center";
                 }
@@ -188,9 +188,9 @@ InkStory = ig.Class.extend({
     getPortraitX: function(position, width) {
         switch (position) {
             case "left":
-                return 20;
+                return 16;
             case "right":
-                return ig.system.width - width - 20;
+                return ig.system.width - width - 16;
             default:
                 //center
                 return (ig.system.width - width) / 2;

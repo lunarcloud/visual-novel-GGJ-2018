@@ -32,10 +32,10 @@ ss.MenuImageOption = ss.MenuOption.extend({
 DailyMenu = ss.Menu.extend({
 
     useTrueFont: true,
-    trueFont: new ss.TrueFont("Cavalcade", 36, "#666", "/fonts/Cavalcade/Cavalcade-Regular.css"),
+    trueFont: new ss.TrueFont("Cavalcade", 24, "#ccc", "/fonts/Cavalcade/Cavalcade-Regular.css"),
 
-    useSideCursorImage: true,
-    sideCursorImage: new ig.Image("media/side-cursor.png"),
+    useSelectedFont: true,
+    selectedTrueFont: new ss.TrueFont("Cavalcade", 24, "#eee", "/fonts/Cavalcade/Cavalcade-Regular.css"),
 
     inkStory: undefined,
     inkStoryChoices: undefined,
@@ -104,38 +104,87 @@ DailyMenu = ss.Menu.extend({
             /* y */ 340
         ));
 
-        if (show.wiley)
-        options[menu.Page.MAIN].push(new ss.MenuImageOption(
+        options[menu.Page.MAIN].push(new ss.MenuOption(
             /* menu */ menu,
-            /* image */ this.images.wiley,
+            /* textGetter */ function() { return "Refer to Note"; },
             /* action */ function() {
-                menu.inkStory.dailyMenuChosen("wiley");
+                menu.inkStory.dailyMenuChosen("note");
             },
-            /* x */ 894,
-            /* y */ 246
+            /* x */ 544 + 128,
+            /* y */ 340 + 256,
+            /* alignment */ ig.Font.ALIGN.CENTER,
+            /* padding */ undefined // default
         ));
 
-        if (show.briggs)
-        options[menu.Page.MAIN].push(new ss.MenuImageOption(
-            /* menu */ menu,
-            /* image */ this.images.briggs,
-            /* action */ function() {
-                menu.inkStory.dailyMenuChosen("briggs");
-            },
-            /* x */ 1098,
-            /* y */ 246
-        ));
+        if (show.wiley) {
+            options[menu.Page.MAIN].push(new ss.MenuImageOption(
+                /* menu */ menu,
+                /* image */ this.images.wiley,
+                /* action */ function() {
+                    menu.inkStory.dailyMenuChosen("wiley");
+                },
+                /* x */ 894,
+                /* y */ 246
+            ));
 
-        if (show.doherty)
-        options[menu.Page.MAIN].push(new ss.MenuImageOption(
-            /* menu */ menu,
-            /* image */ this.images.doherty,
-            /* action */ function() {
-                menu.inkStory.dailyMenuChosen("doherty");
-            },
-            /* x */ 894,
-            /* y */ 466
-        ));
+            options[menu.Page.MAIN].push(new ss.MenuOption(
+                /* menu */ menu,
+                /* textGetter */ function() { return "Officer Wiley"; },
+                /* action */ function() {
+                        menu.inkStory.dailyMenuChosen("wiley");
+                },
+                /* x */ 894 + 64,
+                /* y */ 246 + 128,
+                /* alignment */ ig.Font.ALIGN.CENTER,
+                /* padding */ undefined // default
+            ));
+        }
+
+        if (show.briggs) {
+            options[menu.Page.MAIN].push(new ss.MenuImageOption(
+                /* menu */ menu,
+                /* image */ this.images.briggs,
+                /* action */ function() {
+                    menu.inkStory.dailyMenuChosen("briggs");
+                },
+                /* x */ 1098,
+                /* y */ 246
+            ));
+            options[menu.Page.MAIN].push(new ss.MenuOption(
+                /* menu */ menu,
+                /* textGetter */ function() { return "Sergeant Briggs"; },
+                /* action */ function() {
+                        menu.inkStory.dailyMenuChosen("briggs");
+                },
+                /* x */ 1098 + 64,
+                /* y */ 246 + 128,
+                /* alignment */ ig.Font.ALIGN.CENTER,
+                /* padding */ undefined // default
+            ));
+        }
+
+        if (show.doherty) {
+            options[menu.Page.MAIN].push(new ss.MenuImageOption(
+                /* menu */ menu,
+                /* image */ this.images.doherty,
+                /* action */ function() {
+                    menu.inkStory.dailyMenuChosen("doherty");
+                },
+                /* x */ 894,
+                /* y */ 466
+            ));
+            options[menu.Page.MAIN].push(new ss.MenuOption(
+                /* menu */ menu,
+                /* textGetter */ function() { return "Sergeant Doherty"; },
+                /* action */ function() {
+                        menu.inkStory.dailyMenuChosen("doherty");
+                },
+                /* x */ 894 + 64,
+                /* y */ 466 + 128,
+                /* alignment */ ig.Font.ALIGN.CENTER,
+                /* padding */ undefined // default
+            ));
+        }
 
         var fourthX = 1098;
         var fourthY = 466;
@@ -145,12 +194,34 @@ DailyMenu = ss.Menu.extend({
                 menu.inkStory.dailyMenuChosen("hughes");
                 }, fourthX, fourthY
             ));
+            options[menu.Page.MAIN].push(new ss.MenuOption(
+                /* menu */ menu,
+                /* textGetter */ function() { return "Lt. Gerald Hughes"; },
+                /* action */ function() {
+                        menu.inkStory.dailyMenuChosen("hughes");
+                },
+                /* x */ fourthX + 64,
+                /* y */ fourthY + 128,
+                /* alignment */ ig.Font.ALIGN.CENTER,
+                /* padding */ undefined // default
+            ));
         }
         if (show.custer) {
             options[menu.Page.MAIN].push(new ss.MenuImageOption(menu, this.images.custer,
                 /* action */ function() {
                 menu.inkStory.dailyMenuChosen("custer");
                 }, fourthX, fourthY
+            ));
+            options[menu.Page.MAIN].push(new ss.MenuOption(
+                /* menu */ menu,
+                /* textGetter */ function() { return "Officer Custer"; },
+                /* action */ function() {
+                        menu.inkStory.dailyMenuChosen("custer");
+                },
+                /* x */ fourthX + 64,
+                /* y */ fourthY + 128,
+                /* alignment */ ig.Font.ALIGN.CENTER,
+                /* padding */ undefined // default
             ));
         }
 
