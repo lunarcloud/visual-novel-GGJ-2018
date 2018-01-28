@@ -2,7 +2,7 @@
   "short_name": "SwitchboardCopper",
   "name": "Switchboard Copper",
   "description": "A series of more and more interesting crimes comes through the station as you play a switchboard policeman in the fictional world of Antiford.",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "icons": [
     {
       "src": "/media/icon-512.png",
