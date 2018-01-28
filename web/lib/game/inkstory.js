@@ -46,7 +46,13 @@ InkStory = ig.Class.extend({
         });
 
         this.ink.tagHandlers["portrait"] = function(key, character, position) {
-            if (!position) position = "center";
+            if (!position) {
+                if (character.toLowerCase() == "telegraph") {
+                    position = "right";
+                } else {
+                    position = "center";
+                }
+            }
 
             if (character == null || character == "none") {
                 inkstory.currentPortrait = undefined;

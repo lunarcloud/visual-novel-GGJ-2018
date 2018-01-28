@@ -84,6 +84,7 @@ Oh, well. I suppose I will head on home now." #background:home
 
 "You as well."
 
+#portrait:none
 After a long walk, you arrive at home to find a bundle of flowers on the mat in front of your door.
 
 "How odd," you think aloud.
