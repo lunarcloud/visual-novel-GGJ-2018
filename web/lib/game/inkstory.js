@@ -77,7 +77,9 @@ InkStory = ig.Class.extend({
         };
 
         this.ink.tagHandlers["dailymenu"] = function(key, day) {
-            inkstory.dailymenu = new DailyMenu(inkstory, inkstory.ink.getChoices(), parseInt(day.replace(/day/,'')));
+            if (!inkstory.dailyMenuChosen("continue")) {
+                inkstory.dailymenu = new DailyMenu(inkstory, inkstory.ink.getChoices(), parseInt(day.replace(/day/,'')));
+            }
         };
 
 
@@ -92,8 +94,10 @@ InkStory = ig.Class.extend({
                 ss.GlobalDialogManager.dialogIsActive = true;
                 this.dailymenu = undefined;
                 this.dialogManager = new ss.DialogManager(this.getNextMoment(i));
+                return true;
             }
         }
+        return false;
     },
 
     getNextMoment: function(choiceIndex) {

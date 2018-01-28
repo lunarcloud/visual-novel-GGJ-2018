@@ -3,14 +3,15 @@
 #music:hall4
 #background:desk
 
+Day 5#title
 
 Lt. Gerald Hughes hands you a note.
-*[Open note]-> note
+*[Open the note]-> note
 
 = note
 #portrait:note
 
-Blardy blah.
+Officer Custer was shot, taken to the hospital. I am personally looking after him. Check in with everybody.
 
 -> menu
 
@@ -22,6 +23,7 @@ Blardy blah.
 * [SgtDoherty] -> doherty
 * [OffWiley] -> wiley
 * [LtHughes] -> hughes
+* {CHOICE_COUNT() == 1} [Continue] -> afterall
 
 = briggs
 
@@ -35,19 +37,24 @@ aoeu
 
 = wiley
 
-aoeu
+Witnesses say...
+
 -> menu
 
 = hughes
 
 aoeu
+
 -> menu
 
 = afterall
- #background:home
+#portrait:none
+That seems to be all the facts, then.
+
+#background:home
  
 #music:hall5
-{Day1.greet_francis: -> Day5.obsessed | -> Day5.snubbed}
+{Day1.greet_francis: -> obsessed | -> snubbed}
 
 = obsessed
 

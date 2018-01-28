@@ -7,7 +7,7 @@ First Day, big decision
 #background:home
 #portrait:none
 
-Day 1
+Day 1#title
 
 You wake up, still tired from not having slept well.
 “Maybe the police can do without their switchboard officer today,” you think briefly.
@@ -24,10 +24,9 @@ The office is almost stiflingly hot. You set your bag down. Your assistant, Fran
 #portrait:francis
 
 “Good Morning, Francis. How are you?”
-“I am well, Sergeant. You are a little late. Did you have a difficult morning?
-“Not too difficult. And so I am.
-My watch has been running behind lately."
-“I have brought you a chilled tea from the shop around the corner.”
+“I am well, Sergeant. You're a little late. Did you have a difficult morning?
+“Not too difficult. And, so I am... hrm. My watch has been running behind lately."
+“I've brought you a chilled tea from the shop around the corner.”
 “Thank you, Francis. That is my favorite shop.”
 “Good to know.”
 -> after_greet
@@ -36,14 +35,15 @@ My watch has been running behind lately."
 #background:desk
 Francis hands you a note.
 
-"Here is a note for you from Lt. Hughes. It is regarding an incident this morning. I think he wants you to moniter the situation."
+#portrait:francis
+"Here is a note for you from Lt. Hughes. It's regarding an incident this morning. I think he wants you to moniter the situation."
 
-*[Open note]-> note
+*[Open the note]-> note
 
 = note
 #portrait:note
 
-A tea house on Mallory Lane was robbed at gunpoint. Sergeant Briggs and Officer Custer are on the scene.
+A tea house on Mallory Lane was robbed at gunpoint. Confirm the facts with Sergeant Doherty and Officer Wiley, who are on the scene.
 
 -> menu
 
@@ -85,12 +85,16 @@ A tea house on Mallory Lane was robbed at gunpoint. Sergeant Briggs and Officer 
 ->afterall
 
 = afterall
+#portrait:none
+That seems to be all the facts, then.
+
 #portrait:francis
 
 "Sergeant, we received one more telegraph."
 "Who is it for?"
-"It's not for anyone. There's no name. It just says 'It was always for you."
-"Well Francis, that is rather odd. But it has been a long day. I will be heading home now. Have a good night." #background:home
+"It's not for anyone. There's no name. It just says:
+'It was always for you'."
+"Well Francis, that *is* rather odd. But it's been a long day. I'll be heading home now. Have a good night." #background:home
 "Good night, Sergeant."
 
 {not greet_francis: -> Day2Fire | -> Day2Flower}

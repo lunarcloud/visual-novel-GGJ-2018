@@ -34,6 +34,15 @@ ig.module('game.i18n')
 
         enUS: new Lang(true, "US English", "enUS", {
             "GameTitle": "Switchboard Copper",
+            "Credits": ["Software Development:",
+                        "    Samuel J Sarette",
+                        "Writing:",
+                        "    Justin Thibault, Samuel J Sarette",
+                        "Art:",
+                        "    KD Doyle, Samuel J Sarette",
+                        "Music:",
+                        "    Hall of the Mountain King - Kevin MacLeod",
+                        "    Airship Fury - Jahzzar"],
             "menuback": "back",
             "PauseMenu": {
                 "Main": {

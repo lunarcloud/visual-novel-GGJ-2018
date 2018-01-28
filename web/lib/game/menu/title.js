@@ -13,10 +13,10 @@ ig.module(
         startBlinkTimer: null,
 
         useTrueFont: true,
-        trueFont: new ss.TrueFont("Cavalcade", 42, "#666", "/fonts/Cavalcade/Cavalcade-Regular.css"),
+        trueFont: new ss.TrueFont("Cavalcade", 36, "#666", "/fonts/Cavalcade/Cavalcade-Regular.css"),
 
         useSelectedFont: true,
-        selectedTrueFont: new ss.TrueFont("Cavalcade", 42, "#333", "/fonts/Cavalcade/Cavalcade-Regular.css"),
+        selectedTrueFont: new ss.TrueFont("Cavalcade", 36, "#333", "/fonts/Cavalcade/Cavalcade-Regular.css"),
 
         Page: {
             MAIN : 0,
@@ -68,36 +68,36 @@ ig.module(
             var options = [];
             for (var i = 0; i < Object.keys(menu.Page).length; i++ ) options.push([]);
 
-            var firstYAfterTitle = this.titleFont.textSize + 240;
-
-            var nextOptionSpace = function(page)
-            {
-                if (options[page].length < 1 ) return firstYAfterTitle;
-                else if (!isNaN(options[page][options[page].length - 1].endY)) return options[page][options[page].length - 1].endY + 10;
-                else return options[page][options[page].length - 1].y + options[page][options[page].length - 1].height + 10;
-            };
-
-            var backButton = new ss.MenuOption(
-                /* menu */ menu,
-                /* textGetter */ function() { return ig.i18n().menuback; },
-                /* action */ function(){ menu.pageBack(); },
-                /* x */ 8,
-                /* y */ this.titleFont.textSize,
-                /* alignment */ ig.Font.ALIGN.LEFT,
-                /* padding */ 0 // default
-            );
-
             options[menu.Page.MAIN].push(new ss.MenuOption(
                 /* menu */ menu,
-                /* textGetter */ function() { return ig.i18n().MainMenu.Main["Play"]; },
+                /* textGetter */ function() { return ig.i18n().MainMenu.Main.Play; },
                 /* action */ function() {
                     ig.game.startNewGame();
                 },
-                /* x */ (ig.system.width + 10) / 2 ,
-                /* y */ nextOptionSpace(menu.Page.MAIN) ,
+                /* x */ 300,
+                /* y */ (ig.system.height - this.trueFont.textSize) / 3,
                 /* alignment */ ig.Font.ALIGN.CENTER,
                 /* padding */ undefined // default
             ));
+
+            var currentCreditsY = 140;
+
+            for (var i = 0; i < ig.i18n().Credits.length; i++) {
+                let credit = ig.i18n().Credits[i];
+
+                var credits = new ss.MenuOption(
+                    /* menu */ menu,
+                    /* textGetter */ function() { return credit; },
+                    /* action */ function() { },
+                    /* x */ ig.system.width - 680,
+                    /* y */ currentCreditsY,
+                    /* alignment */ ig.Font.ALIGN.LEFT,
+                    /* padding */ undefined // default
+                );
+                credits.selectable = false;
+                options[menu.Page.MAIN].push(credits);
+                currentCreditsY += this.trueFont.textSize + 4;
+            }
 
             this.options = options; // TODO remove if you implement more screens
         },
