@@ -13,10 +13,12 @@ ig.module(
         startBlinkTimer: null,
 
         useTrueFont: true,
-        trueFont: new ss.TrueFont("Cavalcade", 36, "#666", "/fonts/Cavalcade/Cavalcade-Regular.css"),
+        trueFont: new ss.TrueFont("Cavalcade", 36, "#ccc", "/fonts/Cavalcade/Cavalcade-Regular.css"),
 
         useSelectedFont: true,
-        selectedTrueFont: new ss.TrueFont("Cavalcade", 36, "#333", "/fonts/Cavalcade/Cavalcade-Regular.css"),
+        selectedTrueFont: new ss.TrueFont("Cavalcade", 36, "#fff", "/fonts/Cavalcade/Cavalcade-Regular.css"),
+
+        background: new ig.Image("media/background/desk.jpg"),
 
         Page: {
             MAIN : 0,
@@ -41,7 +43,7 @@ ig.module(
             this.parent();
         },
 
-        titleFont: new ss.TrueFont("Cavalcade", 64, "#444", "/fonts/Cavalcade/Cavalcade-Regular.css"),
+        titleFont: new ss.TrueFont("Cavalcade", 64, "#111", "/fonts/Cavalcade/Cavalcade-Regular.css"),
         titleText: function() { return ig.i18n().GameTitle; },
 
         pageBack: function()
@@ -74,13 +76,13 @@ ig.module(
                 /* action */ function() {
                     ig.game.startNewGame();
                 },
-                /* x */ 300,
-                /* y */ (ig.system.height - this.trueFont.textSize) / 3,
+                /* x */ 160,
+                /* y */ (ig.system.height - 320),
                 /* alignment */ ig.Font.ALIGN.CENTER,
                 /* padding */ undefined // default
             ));
 
-            var currentCreditsY = 140;
+            var currentCreditsY = 280;
 
             for (var i = 0; i < ig.i18n().Credits.length; i++) {
                 let credit = ig.i18n().Credits[i];
@@ -138,10 +140,15 @@ ig.module(
         draw: function()
         {
             //background
-            //this.startImage.draw(0, 0);
-            ig.system.context.fillStyle = '#f7efd7';
-            ig.system.context.fillRect( 0, 0, ig.system.realWidth, ig.system.realHeight );
-            this.titleFont.draw(this.titleText(), ig.system.width/2, 10, ss.TrueFont.ALIGN.CENTER, 1);
+            //ig.system.context.fillStyle = '#f7efd7';
+            //ig.system.context.fillRect( 0, 0, ig.system.realWidth, ig.system.realHeight );
+            this.background.draw(0, 0);
+
+            ig.system.context.fillStyle = '#af874c';
+            ig.system.context.fillRect((ig.system.width/2)-290, 110, 580, 120 );
+            ig.system.context.fillStyle = '#826539';
+            ig.system.context.fillRect((ig.system.width/2)-280, 120, 560, 100 );
+            this.titleFont.draw(this.titleText(), ig.system.width/2, 140, ss.TrueFont.ALIGN.CENTER, 1);
 
             if (this.currentPage === this.Page.LOBBY)
             {
