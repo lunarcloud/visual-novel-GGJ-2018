@@ -96,8 +96,8 @@ DailyMenu = ss.Menu.extend({
             /* action */ function() {
                 menu.inkStory.dailyMenuChosen("note");
             },
-            /* x */ 192,
-            /* y */ ig.system.height / 3
+            /* x */ 544,
+            /* y */ 340
         ));
 
         if (show.wiley)
@@ -107,8 +107,8 @@ DailyMenu = ss.Menu.extend({
             /* action */ function() {
                 menu.inkStory.dailyMenuChosen("wiley");
             },
-            /* x */ ig.system.width - 352,
-            /* y */ ig.system.height - 352
+            /* x */ 894,
+            /* y */ 246
         ));
 
         if (show.briggs)
@@ -118,8 +118,8 @@ DailyMenu = ss.Menu.extend({
             /* action */ function() {
                 menu.inkStory.dailyMenuChosen("briggs");
             },
-            /* x */ ig.system.width - 192,
-            /* y */ ig.system.height - 352
+            /* x */ 1098,
+            /* y */ 246
         ));
 
         if (show.doherty)
@@ -129,12 +129,12 @@ DailyMenu = ss.Menu.extend({
             /* action */ function() {
                 menu.inkStory.dailyMenuChosen("doherty");
             },
-            /* x */ ig.system.width - 352,
-            /* y */ ig.system.height - 192
+            /* x */ 894,
+            /* y */ 466
         ));
 
-        var fourthX = ig.system.width - 192;
-        var fourthY = ig.system.height - 192;
+        var fourthX = 1098;
+        var fourthY = 466;
         if (show.hughes) {
             options[menu.Page.MAIN].push(new ss.MenuImageOption(menu, this.images.hughes,
                 /* action */ function() {

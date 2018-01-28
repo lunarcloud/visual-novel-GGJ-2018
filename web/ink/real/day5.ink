@@ -1,11 +1,12 @@
 == Day5 ==  
-#music:hall4, background:desk
+#music:hall4 #background:desk
 
 
 Lt. Gerald Hughes hands you a note.
 *[Open note]-> note
 
 = note
+#portrait:note
 
 Blardy blah.
 
@@ -13,7 +14,7 @@ Blardy blah.
 
 = menu
 
-#dailymenu:day5
+#portrait:none #dailymenu:day5
 + [Note] -> note
 * [SgtBriggs] -> briggs
 * [SgtDoherty] -> doherty
@@ -40,6 +41,9 @@ aoeu
 aoeu
 -> menu
 
+= afterall
+ #background:home
+ 
 #music:hall5
 {Day1.greet_francis: -> Day5.obsessed | -> Day5.snubbed}
 

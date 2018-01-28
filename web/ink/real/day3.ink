@@ -1,5 +1,5 @@
 == Day3 ==  
-#music:hall2, background:desk
+#music:hall2 #background:desk
 
 You arrive at the station just as Francis is setting his things down.
 
@@ -26,6 +26,7 @@ Francis walks up to you with a note in his hand.
 *[Open note]-> note
 
 = note
+#portrait:note
 
 At 10 this morning, the Black Leaf and Earl was robbed.
 The suspect made off with a considerable amount of money.
@@ -35,7 +36,7 @@ Sergeant Doherty and Officer Wiley are on the scene.
 
 = menu
 
-#dailymenu:day3
+#portrait:none #dailymenu:day3
 + [Note] -> note
 * [SgtBriggs] -> briggs
 * [SgtDoherty] -> doherty
@@ -43,17 +44,20 @@ Sergeant Doherty and Officer Wiley are on the scene.
 * [OffCuster] -> custer
 
 = briggs
+#portrait:telegraph
 
 "What are you contacting me for? I am no where near the Black Leaf and Earl. I think that was assigned to Sgt. Doherty."
 -> menu
 
 = doherty
+#portrait:telegraph
 
 "The owner states that a slim man with brown hair and a leather mask robbed the restaurant at gun point.
 The restaurant will be closed until the interviews are concluded and the assessor has arrived."
 {wiley: -> afterall | -> menu}
 
 = wiley
+#portrait:telegraph
 
 "The patrons all stated that the suspect is a shorter, thin man.
 He was wielding a gun.
@@ -62,6 +66,7 @@ Another said that he stole her sandwich."
 {doherty: -> afterall | -> menu}
 
 = custer
+#portrait:telegraph
 
 "I am not at the Black Leaf and Earl. I think Officer Wiley is there."
 -> menu
@@ -89,6 +94,6 @@ You stand and retrieve it.
 Once again, you are looking at a message addressed to no one.
 And it reads,
 'It was always for you'
-You feel a little uneasy on your walk home and through the night.
+You feel a little uneasy on your walk home and through the night. #background:home
 
 -> Day4

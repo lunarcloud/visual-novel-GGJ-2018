@@ -46,14 +46,14 @@ InkStory = ig.Class.extend({
         });
 
         this.ink.tagHandlers["portrait"] = function(key, character, position) {
-            if (!position) position = "left";
+            if (!position) position = "center";
 
             if (character == null || character == "none") {
                 inkstory.currentPortrait = undefined;
             } else {
                 inkstory.currentPortrait = {
-                    character: character,
-                    position: position
+                    character: character.toLowerCase(),
+                    position: position.toLowerCase()
                 };
             }
         };
@@ -101,11 +101,15 @@ InkStory = ig.Class.extend({
                 needNewline = true;
             }
             if (needNewline) {
-                if (/[\s\.?!\-+=”"']/.test(text[i])) {
+                if (/[\s\.?!\-+=”"']/.test(text[i]) && !/[\s\.?!\-+=”"']/.test(text[i+1])) {
                     sizedText += '\n';
                     needNewline = false;
                 } else if ( i !== text.length-1 && i > 67 && i % 68 === 0) {
-                    sizedText += '-\n';
+                    if (/[\s\.?!\-+=”"']/.test(text[i])) {
+                        sizedText += '\n';
+                    } else {
+                        sizedText += '-\n';
+                    }
                     needNewline = false;
                 }
             }

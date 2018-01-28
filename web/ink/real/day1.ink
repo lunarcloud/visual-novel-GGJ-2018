@@ -3,7 +3,7 @@ First Day, big decision
 */
 
  == Day1 ==
-#music:hall1, background:home
+#music:hall1 #background:home
 
 Day 1
 
@@ -32,21 +32,24 @@ My watch has been running behind lately."
 -> after_greet
 
 = after_greet
+#background:desk
 Francis hands you a note.
 
-#portrait:Francis
+#portrait:francis
 "Here is a note for you from Lt. Hughes. It is regarding an incident this morning. I think he wants you to moniter the situation."
 
 *[Open note]-> note
 
 = note
+#portrait:note
+
 A tea house on Mallory Lane was robbed at gunpoint. Sergeant Briggs and Officer Custer are on the scene.
 
 -> menu
 
 = menu
 
-#dailymenu:day1
+#background:desk #portrait:none #dailymenu:day1
 + [Note] -> note
 * [SgtBriggs] -> briggs
 * [SgtDoherty] -> doherty
@@ -54,23 +57,27 @@ A tea house on Mallory Lane was robbed at gunpoint. Sergeant Briggs and Officer 
 * [OffCuster] -> custer
 
 = briggs
+#portrait:telegraph
 
 "What are you contacting me for? I am no where near the tea house. I think that was assigned to Sgt. Doherty."
 -> menu
 
 = doherty
+#portrait:telegraph
 
 "The witnesses report seeing a short, thin individual wearing all black with a hood. None of them saw the suspect's face."
 
 {wiley: -> afterall | -> menu}
 
 = wiley
+#portrait:telegraph
 
 "I have taken a statement from the owner. She reports the suspect is slim man with brown hair. She did not see his face due to a leather mask he was wearing."
 
 {doherty: -> afterall | -> menu}
 
 = custer
+#portrait:telegraph
 
 "I am not at the tea house. I think Officer Wiley is there."
 -> menu
@@ -83,7 +90,7 @@ A tea house on Mallory Lane was robbed at gunpoint. Sergeant Briggs and Officer 
 "Sergeant, we received one more telegraph."
 "Who is it for?"
 "It's not for anyone. There's no name. It just says 'It was always for you."
-"Well Francis, that is rather odd. But it has been a long day. I will be heading home now. Have a good night."
+"Well Francis, that is rather odd. But it has been a long day. I will be heading home now. Have a good night." #background:home
 "Good night, Sergeant."
 
 {not greet_francis: -> Day2Fire | -> Day2Flower}
