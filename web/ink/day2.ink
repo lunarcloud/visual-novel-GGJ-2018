@@ -19,7 +19,8 @@ Francis walks away, but soon returns.
 #portrait:francis
 "There is another note for you from the lieutenant. He wants you to follow up with the team investigating this crime."
 
-{Day1.greet_francis: * [Open the note] -> normalnote | * [Open the note] -> firenote}
+  * {Day1.greet_francis} [Open the note] -> normalnote 
+  * {not Day1.greet_francis} [Open the note] -> firenote
 
 = normalnote
 #portrait:note
@@ -38,11 +39,13 @@ A flower shop on High Top Road was broken into early this morning. Sergeant Brig
 = menu
 
 #portrait:none #dailymenu:day2
-{Day1.greet_francis: + [Note] -> normalnote | + [Note] -> firenote}
-* [SgtBriggs] -> briggs
-* [SgtDoherty] -> doherty
-* [OffWiley] -> wiley
-* [OffCuster] -> custer
+  + {Day1.greet_francis} [Note] -> normalnote
+  + {not Day1.greet_francis} [Note] -> firenote
+  * [SgtBriggs] -> briggs
+  * [SgtDoherty] -> doherty
+  * [OffWiley] -> wiley
+  * {Day1.greet_francis} [OffCuster] -> normalcuster
+  * {not Day1.greet_francis} [OffCuster] -> firecuster
 
 = briggs
 #portrait:telegraph
@@ -65,50 +68,25 @@ A flower shop on High Top Road was broken into early this morning. Sergeant Brig
 
 -> menu
 
-= custer
+= normalcuster
 #portrait:telegraph
 
 "A witness states that they saw a thin man with short brown hair running away from the scene. He had a bundle of flowers in his hands."
 
+-> custer
+
+= firecuster
+#portrait:telegraph
+
+"A young boy said that he saw a figure, dressed well, throw a bottle through the window to the tea house.
+Shortly afterward, fire started to spread through the house."
+
+-> custer
+
+= custer
 {briggs: -> afterall | -> menu}
 
 = afterall
-
-{Day1.greet_francis: -> normalafterall | -> fireafterall}
-
-= normalafterall
-
-#portrait:none
-That seems to be all the facts, then.
-
-#portrait:francis
-"Well, Francis. Another long day. Are there any other telegraphs?"
-
-"It appears that there is one more..."
-
-"Who is it for?"
-
-"There is no name. It just says 
-'It was always for you'
-This is the second one now."
-
-"Again with the odd one? I wonder who is sending them. It seems a waste to send only that.
-
-Oh, well. I suppose I will head on home now." #background:home
-
-"Have a good night sergeant."
-
-"You as well."
-
-#portrait:none
-After a long walk, you arrive at home to find a bundle of flowers on the mat in front of your door.
-
-"How odd," you think aloud.
-
--> Day3
-
-= fireafterall
-
 #portrait:none
 That seems to be all the facts, then.
 
@@ -130,5 +108,14 @@ Oh, well. I suppose I will head on home now." #background:home
 "Have a good night sergeant."
 
 "You as well."
+
+{Day1.greet_francis: -> givenflowers | -> Day3}
+
+= givenflowers
+
+#portrait:none
+After a long walk, you arrive at home to find a bundle of flowers on the mat in front of your door.
+
+"How odd," you think aloud.
 
 -> Day3
