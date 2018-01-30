@@ -221,11 +221,11 @@ ig.module(
 
         setHandler: function(handler) { this.handler = handler; },
         setNextMoment: function(moment) { this.nextMoment = moment; },
-        trigger: async function(manager) {
+        trigger:  function(manager) {
             var choice = manager.selectedChoiceIndex;
             manager.changeActiveMoment(null);
             if (typeof(this.handler) === "function") {
-                await this.handler(choice);
+                 this.handler(choice);
             }
             if (this.nextMoment instanceof ss.DialogMoment === false) {
                 manager.endDialog();

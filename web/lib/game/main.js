@@ -185,7 +185,7 @@ var fps = 60;
 var gameWidth = 720;
 var gameHeight = gameWidth * (16/9);
 var scale = 1;
-
+ig.Sound.use = [ig.Sound.FORMAT.OGG, ig.Sound.FORMAT.M4A];
 ig.System.scaleMode = ig.System.SCALE.SMOOTH;
 ig.main( '#canvas', SwitchboardCopperGame, fps, gameHeight, gameWidth, scale, ig.ImpactSplashLoader);
 

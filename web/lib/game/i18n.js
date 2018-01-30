@@ -170,7 +170,7 @@ ig.module('game.i18n')
 
     ig.i18n = function()
     {
-        return ig.lang.current;
+        return ig.lang.current || ig.langs.enUS;
     };
 
 });
