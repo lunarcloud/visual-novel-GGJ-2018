@@ -58,11 +58,7 @@ SwitchboardCopperGame = ig.Game.extend({
         // Setup Controls
         ig.input.bind( ig.KEY.MOUSE1, 'click' );
 
-        if( ig.ua.mobile ) {
-            //this.setupNormalTouchControls();
-        } else {
-            this.setupDesktopControls();
-        }
+        this.setupDesktopControls();
 
         this.fadeInTimer = new ig.Timer(0);
         this.fadeOutTimer = new ig.Timer(0);
@@ -70,7 +66,7 @@ SwitchboardCopperGame = ig.Game.extend({
             ig.game.fadeInTimer = new ig.Timer(ig.game.fadeInTime);
             ig.game.loadMainMenu();
             setTimeout(function() {
-                ig.music.play("menu");
+                if(! ig.ua.mobile ) ig.music.play("menu");
             }, 400);
         }, true);
     },
@@ -192,5 +188,23 @@ var scale = 1;
 
 ig.System.scaleMode = ig.System.SCALE.SMOOTH;
 ig.main( '#canvas', SwitchboardCopperGame, fps, gameHeight, gameWidth, scale, ig.ImpactSplashLoader);
+
+if( ig.ua.mobile )
+{
+    var fixMobileAudio = function(event)
+    {
+        for (var i = 0; i < ig.music.tracks.length; i++ )
+        {
+            ig.music.tracks[i].play(event);
+            ig.music.tracks[i].pause();
+        }
+        ig.music.play("menu");
+        document.getElementById("mobile-play").removeEventListener("click", fixMobileAudio);
+        document.getElementById("mobile-play").style.display = 'none';
+    }
+    document.getElementById("mobile-play").addEventListener("click", fixMobileAudio);
+} else {
+    document.getElementById("mobile-play").style.display = 'none';
+}
 
 });
