@@ -2,6 +2,7 @@ ig.module(
     'game.main'
 )
 .requires(
+    //'impact.debug.debug',
     'plugins.impact-splash-loader',
     'impact.game',
     'impact.font',
@@ -15,7 +16,6 @@ ig.module(
     'game.menu.title',
     'game.levels.blank'
 
-    //'impact.debug.debug',
 )
 .defines(function(){
 
@@ -35,7 +35,6 @@ SwitchboardCopperGame = ig.Game.extend({
 
     music: {
         menu: new ig.Sound( 'media/music/Jahzzar - Airship Fury.*', false),
-        hall: new ig.Sound( 'media/music/Kevin MacLeod - Hall of the Mountain King.*', false),
         hall1: new ig.Sound( 'media/music/Kevin MacLeod - Hall of the Mountain King - 1.*', false),
         hall2: new ig.Sound( 'media/music/Kevin MacLeod - Hall of the Mountain King - 2.*', false),
         hall3: new ig.Sound( 'media/music/Kevin MacLeod - Hall of the Mountain King - 3.*', false),
