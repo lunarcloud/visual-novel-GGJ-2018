@@ -44,7 +44,7 @@ public class InkStoryManager : MonoBehaviour {
 				});
 			}
 		} else if (isEnded ()) {
-			dialogView.AddChoice ("●", storyEndAction);
+			dialogView.AddChoice ("●", storyEndAction, TextAnchor.LowerRight);
 		} else {
 			dialogView.AddChoice ("▼", delegate {
 				Continue();
