@@ -1,4 +1,4 @@
-== Day5 ==  
+== Day5 ==
 #portrait:none
 #music:hall4
 #background:home
@@ -10,7 +10,7 @@ You woke up at a reasonable time, watch ticking nicely, but you found it hard to
 Francis was the most overly-helpful employee at the station you'd ever seen.
 {not Day1.greet_francis: It was often a bit overkill. Nice kid, but misguided. }
 
-When you made it to the office, the building was unusually dead. The lieutenant wasn't there, 
+When you made it to the office, the building was unusually dead. The lieutenant wasn't there,
 Not even Francis was in at work today.
 "Where is everyone?" you say to yourself.
 
@@ -97,5 +97,5 @@ As you walk home, you find a piece of paper in your pocket. It read:
 "It was always for you."
 
 -> END
- 
- 
+
+
