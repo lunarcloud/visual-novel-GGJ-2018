@@ -49,7 +49,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 72de19ac430af4c45bb7d695f1f2d3ce, type: 3}
-    m_FontSize: 20
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -60,7 +60,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Lorem ipsum '
+  m_Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc congue nibh
+    at est consequat lacinia. In tincidunt enim sagittis venenatis mollis. Curabitur
+    odio lectus
 --- !u!222 &222837935868787338
 CanvasRenderer:
   m_ObjectHideFlags: 1
