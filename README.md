@@ -5,8 +5,7 @@ A series of more and more interesting crimes comes through the station as you pl
 Integrated the [Ink language](https://www.inklestudios.com/ink/) into [ImpactJS]( http://impactjs.com/ ) and [Unity]( https://unity3d.com/ )
 
 ## Web version
-You can either run the pre-baked index.html or copy your licensed version of ImpactJS 1.x into the appropriate locations and use the dev.html
-
+You can either run the pre-baked index.html or use the dev.html. ImpactJS engine is included now that it is open-source.
 There are scripts within the tools folder for packaging for desktop.
 
 ## Unity version
