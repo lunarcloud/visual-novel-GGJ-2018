@@ -74,7 +74,7 @@ SwitchboardCopperGame = ig.Game.extend({
     setupDialogManager: function() {
         ss.GlobalDialogManager.fontName = "Cavalcade";
         setTimeout(function(){
-            ss.GlobalDialogManager.loadFont("Cavalcade", "/fonts/Cavalcade/Cavalcade-Regular.css");
+            ss.GlobalDialogManager.loadFont("Cavalcade", "fonts/Cavalcade/Cavalcade-Regular.css");
         }, 1);
         ss.GlobalDialogManager.textSize = 36;
         ss.GlobalDialogManager.textEdgePadding = 10;

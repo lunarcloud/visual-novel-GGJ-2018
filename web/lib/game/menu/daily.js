@@ -32,10 +32,10 @@ ss.MenuImageOption = ss.MenuOption.extend({
 DailyMenu = ss.Menu.extend({
 
     useTrueFont: true,
-    trueFont: new ss.TrueFont("Cavalcade", 24, "#ccc", "/fonts/Cavalcade/Cavalcade-Regular.css"),
+    trueFont: new ss.TrueFont("Cavalcade", 24, "#ccc", "fonts/Cavalcade/Cavalcade-Regular.css"),
 
     useSelectedFont: true,
-    selectedTrueFont: new ss.TrueFont("Cavalcade", 24, "#eee", "/fonts/Cavalcade/Cavalcade-Regular.css"),
+    selectedTrueFont: new ss.TrueFont("Cavalcade", 24, "#eee", "fonts/Cavalcade/Cavalcade-Regular.css"),
 
     inkStory: undefined,
     inkStoryChoices: undefined,

@@ -13,10 +13,10 @@ ig.module(
         startBlinkTimer: null,
 
         useTrueFont: true,
-        trueFont: new ss.TrueFont("Cavalcade", 36, "#ccc", "/fonts/Cavalcade/Cavalcade-Regular.css"),
+        trueFont: new ss.TrueFont("Cavalcade", 36, "#ccc", "fonts/Cavalcade/Cavalcade-Regular.css"),
 
         useSelectedFont: true,
-        selectedTrueFont: new ss.TrueFont("Cavalcade", 36, "#fff", "/fonts/Cavalcade/Cavalcade-Regular.css"),
+        selectedTrueFont: new ss.TrueFont("Cavalcade", 36, "#fff", "fonts/Cavalcade/Cavalcade-Regular.css"),
 
         background: new ig.Image("media/background/desk.jpg"),
 
@@ -43,7 +43,7 @@ ig.module(
             this.parent();
         },
 
-        titleFont: new ss.TrueFont("Cavalcade", 64, "#111", "/fonts/Cavalcade/Cavalcade-Regular.css"),
+        titleFont: new ss.TrueFont("Cavalcade", 64, "#111", "fonts/Cavalcade/Cavalcade-Regular.css"),
         titleText: function() { return ig.i18n().GameTitle; },
 
         pageBack: function()

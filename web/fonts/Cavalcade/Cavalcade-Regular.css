@@ -1,10 +1,6 @@
-/* Webfont: Cavalcade-Regular */@font-face {
+@font-face {
     font-family: 'Cavalcade';
-    src: url('Cavalcade-Regular.eot'); /* IE9 Compat Modes */
-    src: url('Cavalcade-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('Cavalcade-Regular.woff') format('woff'), /* Modern Browsers */
-         url('Cavalcade-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('Cavalcade-Regular.svg#Cavalcade-Regular') format('svg'); /* Legacy iOS */
+    src: url('Cavalcade-Regular.woff') format('woff');
     font-style: normal;
     font-weight: normal;
     text-rendering: optimizeLegibility;
