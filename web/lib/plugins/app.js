@@ -13,7 +13,7 @@
  *
  * @licend  The above is the entire license notice for the JavaScript code in this module.
  */
-ig.module( 'plugins.chrome-app' )
+ig.module( 'plugins.app' )
 .requires(
     'impact.system'
 )
@@ -22,10 +22,12 @@ ig.module( 'plugins.chrome-app' )
     ig.System.inject({
         isChromeApp: (typeof(window.chrome) !== "undefined" && typeof(chrome.runtime) !== "undefined" && typeof(chrome.runtime.id) !== "undefined"),
         isPopup: (window.opener && !window.statusbar.visible),
+        isItchPlayer: location.protocol === "itch-cave:",
+        canQuit: function() {
+            return ig.system.isChromeApp || ig.system.isPopup || ig.system.isItchPlayer;
+        },
         quit: function() {
-            if (typeof(navigator) !== "undefined" && typeof(navigator.app) !== "undefined" && typeof(navigator.app.exitApp) === "function") {
-                navigator.app.exitApp();
-            } else if (ig.system.isChromeApp || ig.system.isPopup ) {
+            if (ig.system.canQuit()) {
                 window.close();
             }
         }

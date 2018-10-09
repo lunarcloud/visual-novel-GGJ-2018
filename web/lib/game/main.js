@@ -8,7 +8,7 @@ ig.module(
     'impact.font',
 
     'plugins.ss.true-font',
-    'plugins.chrome-app',
+    'plugins.app',
     'plugins.localstorage',
 
     'game.colors',

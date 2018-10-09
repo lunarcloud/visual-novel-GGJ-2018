@@ -82,6 +82,20 @@ ig.module(
                 /* padding */ undefined // default
             ));
 
+            if (ig.system.canQuit()) {
+                options[menu.Page.MAIN].push(new ss.MenuOption(
+                    /* menu */ menu,
+                    /* textGetter */ function() { return ig.i18n().MainMenu.Main.Quit; },
+                    /* action */ function() {
+                        ig.system.quit();
+                    },
+                    /* x */ 160,
+                    /* y */ (ig.system.height - 70),
+                    /* alignment */ ig.Font.ALIGN.CENTER,
+                    /* padding */ undefined // default
+                ));
+            }
+
             var currentCreditsY = 280;
 
             for (var i = 0; i < ig.i18n().Credits.length; i++) {
@@ -101,7 +115,7 @@ ig.module(
                 currentCreditsY += this.trueFont.textSize + 4;
             }
 
-            this.options = options; // TODO remove if you implement more screens
+            this.options = options;
         },
 
         update: function()
