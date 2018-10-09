@@ -137,10 +137,7 @@ SwitchboardCopperGame = ig.Game.extend({
         this.fadeOutTimer = new ig.Timer(this.fadeOutTime);
         //ig.music.fadeOut();
         setTimeout(function() {
-
-            if (location.search.length > 0) ig.game.loadLevel(self["Level"+location.search.replace("?level=","")]);
-            else ig.game.loadLevel(LevelBlank);
-
+            ig.game.loadLevel(LevelBlank);
             ig.game.fadeInTimer = new ig.Timer(ig.game.fadeInTime);
         }, ig.game.fadeOutTime * 1000);
     },
