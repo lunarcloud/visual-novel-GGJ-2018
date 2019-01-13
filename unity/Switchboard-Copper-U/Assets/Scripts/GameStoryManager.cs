@@ -65,7 +65,7 @@ public class GameStoryManager : MonoBehaviour {
 	{
 		musicPlayer.Stop ();
 		musicPlayer.clip = null;
-		var newClip = new AudioClip();
+		AudioClip newClip;
 		var gotClip = clips.TryGetValue (text, out newClip);
 		if (gotClip) {
 			musicPlayer.clip = newClip;

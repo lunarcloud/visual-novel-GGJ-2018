@@ -1,3 +1,4 @@
 /web/output/
 /web/dist/
 /web/tools/downloads/*
+*.lock
