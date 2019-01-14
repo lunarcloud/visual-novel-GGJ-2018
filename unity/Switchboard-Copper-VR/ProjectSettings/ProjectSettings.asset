@@ -236,7 +236,7 @@ PlayerSettings:
   clonedFromGUID: 00000000000000000000000000000000
   templatePackageId: 
   templateDefaultScene: 
-  AndroidTargetArchitectures: 5
+  AndroidTargetArchitectures: 7
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: 
@@ -686,7 +686,7 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   vrEditorSettings:
     daydream:
-      daydreamIconForeground: {fileID: 2800000, guid: e317ae94b6d1444e1bdb3dfba48a7ea9,
+      daydreamIconForeground: {fileID: 2800000, guid: 2be0e847a607f5d4eaf917448c254df8,
         type: 3}
       daydreamIconBackground: {fileID: 2800000, guid: 661a6cfc10185f14aad724c3512edbef,
         type: 3}
