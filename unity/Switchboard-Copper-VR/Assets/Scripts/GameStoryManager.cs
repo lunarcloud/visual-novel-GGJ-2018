@@ -18,13 +18,23 @@ public class GameStoryManager : MonoBehaviour {
 
 	public UnityEngine.EventSystems.EventSystem eventSystem;
 
-	void Awake () {
+    public PanelFade m_BlackoutCover; 
+
+    private string currentBackground = "";
+
+    private bool hasBackground = false;
+
+    void Awake () {
 		inkManager.storyEndAction = delegate {
 			BackToMenu ();
 		};
 		inkManager.AddTagProcessor ("background", delegate(string value) {
-			SwitchToBackground(value);
-		});
+            if (value != currentBackground)
+            {
+                currentBackground = value;
+                StartCoroutine(SwitchToBackground(value));
+            }
+        });
 		inkManager.AddTagProcessor ("portrait", delegate(string value) {
 			SwitchToPortrait(value);
 		});
@@ -34,25 +44,32 @@ public class GameStoryManager : MonoBehaviour {
 		inkManager.AddTagProcessor ("dailymenu", delegate(string value) {
 			DailyMenu();
 		});
-		dailyMenuCanvas.SetActive (false);
+        dailyMenuCanvas.SetActive (false);
 		dialogCanvas.SetActive (true);
 		inkManager.StartStory();
-	}
+    }
 
-	public void BackToMenu() {
-		SceneManager.LoadScene (0);
-	}
+    private IEnumerator SwitchToBackground(string text)
+    {
+        if (hasBackground)
+        {
+            dialogCanvas.SetActive(false);
+            m_BlackoutCover.FadeIn();
+            yield return new WaitForSeconds(2);
+            dialogCanvas.SetActive(true);
+        }
+        int childCount = backgroundsParent.transform.childCount;
+        for (int i = childCount; i > 0; i--)
+        {
+            var background = backgroundsParent.transform.GetChild(i - 1).gameObject;
+            background.SetActive(background.name == text);
+        }
+        m_BlackoutCover.FadeOut();
+        hasBackground = true;
+        yield return null;
+    }
 
-	void SwitchToBackground (string text)
-	{
-		int childCount = backgroundsParent.transform.childCount;
-		for (int i = childCount; i > 0; i--) {
-			var background = backgroundsParent.transform.GetChild (i - 1).gameObject;
-			background.SetActive (background.name == text);
-		}
-	}
-
-	void SwitchToPortrait (string text)
+    void SwitchToPortrait (string text)
 	{
 		int childCount = portraitsParent.transform.childCount;
 		for (int i = childCount; i > 0; i--) {
@@ -111,4 +128,9 @@ public class GameStoryManager : MonoBehaviour {
 			}
 		}
 	}
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }
