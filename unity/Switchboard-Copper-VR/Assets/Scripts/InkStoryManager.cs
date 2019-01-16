@@ -44,7 +44,7 @@ public class InkStoryManager : MonoBehaviour {
 
 		string text = story.Continue ().Trim ();
 		dialogView.SetText (text);
-        m_easyContinue = story.currentChoices.Count == 0 && !isEnded();
+        m_easyContinue = story.currentChoices.Count <= 1 && !isEnded();
 
         if (story.currentChoices.Count > 0) {
 			for (int i = 0; i < story.currentChoices.Count; i++) {

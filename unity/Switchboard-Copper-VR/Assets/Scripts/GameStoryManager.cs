@@ -133,7 +133,7 @@ public class GameStoryManager : MonoBehaviour {
     }
 
     public void EasyContinue() {
-        if (inkManager.easyContinue && !pointingAtDialogBox) {
+        if (dialogCanvas.active && inkManager.easyContinue && !pointingAtDialogBox) {
             inkManager.Continue();
         }
     }
