@@ -17,7 +17,15 @@ public class InkStoryManager : MonoBehaviour {
 
 	public UnityEngine.Events.UnityAction storyEndAction = delegate {};
 
-	public string State {
+    private bool m_easyContinue = false;
+
+    public bool easyContinue
+    {
+        get { return m_easyContinue; }
+        set { }
+    }
+
+    public string State {
 		get {
 			return this.story.state.ToJson ();
 		}
@@ -36,7 +44,9 @@ public class InkStoryManager : MonoBehaviour {
 
 		string text = story.Continue ().Trim ();
 		dialogView.SetText (text);
-		if (story.currentChoices.Count > 0) {
+        m_easyContinue = story.currentChoices.Count == 0 && !isEnded();
+
+        if (story.currentChoices.Count > 0) {
 			for (int i = 0; i < story.currentChoices.Count; i++) {
 				Choice choice = story.currentChoices [i];
 				dialogView.AddChoice (choice.text.Trim (), delegate {

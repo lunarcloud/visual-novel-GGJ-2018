@@ -6,27 +6,22 @@ using UnityEngine;
 public class GameStoryManager : MonoBehaviour {
 
 	public InkStoryManager inkManager;
-
 	public GameObject dialogCanvas;
 	public GameObject dailyMenuCanvas;
-
 	public GameObject backgroundsParent;
 	public GameObject portraitsParent;
-
 	public AudioSource musicPlayer;
 	public PossibleAudioClips clips;
-
 	public UnityEngine.EventSystems.EventSystem eventSystem;
-
     public PanelFade m_BlackoutCover; 
 
     private string currentBackground = "";
-
     private bool hasBackground = false;
+    private bool pointingAtDialogBox = false;
 
     void Awake () {
 		inkManager.storyEndAction = delegate {
-			BackToMenu ();
+            StartCoroutine(BackToMenu());
 		};
 		inkManager.AddTagProcessor ("background", delegate(string value) {
             if (value != currentBackground)
@@ -128,9 +123,28 @@ public class GameStoryManager : MonoBehaviour {
 			}
 		}
 	}
-    public void BackToMenu()
+
+    public IEnumerator BackToMenu()
     {
+        dialogCanvas.SetActive(false);
+        m_BlackoutCover.FadeIn();
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(0);
     }
 
+    public void EasyContinue() {
+        if (inkManager.easyContinue && !pointingAtDialogBox) {
+            inkManager.Continue();
+        }
+    }
+
+    public void FocusDialog()
+    {
+        pointingAtDialogBox = true;
+    }
+
+    public void UnfocusDialog()
+    {
+        pointingAtDialogBox = false;
+    }
 }

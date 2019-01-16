@@ -5,15 +5,41 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
-	public void LoadByIndex(int sceneIndex) {
+    public PanelFade m_BlackoutCover;
+
+
+    void Awake()
+    {
+        m_BlackoutCover.FadeOut();
+    }
+
+    public void FadeToByIndex(int sceneIndex) {
+        StartCoroutine(FadeToByIndexImpl(sceneIndex));
+    }
+
+    private IEnumerator FadeToByIndexImpl(int sceneIndex)
+    {
+        m_BlackoutCover.FadeIn();
+        yield return new WaitForSeconds(2);
+        LoadByIndex(sceneIndex);
+    }
+
+    public void LoadByIndex(int sceneIndex) {
 		SceneManager.LoadScene (sceneIndex);
 	}
 
 	public void Quit() {
-		#if UNITY_EDITOR
-		UnityEditor.EditorApplication.isPlaying = false;
-		#else
+        StartCoroutine(QuitImpl());
+    }
+
+    private IEnumerator QuitImpl()
+    {
+        m_BlackoutCover.FadeIn();
+        yield return new WaitForSeconds(2);
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
 		Application.Quit();
-		#endif
-	}
+#endif
+    }
 }
