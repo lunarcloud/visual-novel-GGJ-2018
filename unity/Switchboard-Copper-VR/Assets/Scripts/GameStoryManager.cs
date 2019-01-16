@@ -18,10 +18,11 @@ public class GameStoryManager : MonoBehaviour {
     private string currentBackground = "";
     private bool hasBackground = false;
     private bool pointingAtDialogBox = false;
+    private bool leavingForMenu = false;
 
     void Awake () {
 		inkManager.storyEndAction = delegate {
-            StartCoroutine(BackToMenu());
+            BackToMenu();
 		};
 		inkManager.AddTagProcessor ("background", delegate(string value) {
             if (value != currentBackground)
@@ -42,6 +43,11 @@ public class GameStoryManager : MonoBehaviour {
         dailyMenuCanvas.SetActive (false);
 		dialogCanvas.SetActive (true);
 		inkManager.StartStory();
+    }
+    
+    private void Update()
+    {
+        if (GvrControllerInput.AppButton) BackToMenu();
     }
 
     private IEnumerator SwitchToBackground(string text)
@@ -124,7 +130,16 @@ public class GameStoryManager : MonoBehaviour {
 		}
 	}
 
-    public IEnumerator BackToMenu()
+    public void BackToMenu()
+    {
+        if (!leavingForMenu)
+        {
+            leavingForMenu = true;
+            StartCoroutine(BackToMenuImpl());
+        }
+    }
+
+    private IEnumerator BackToMenuImpl()
     {
         dialogCanvas.SetActive(false);
         m_BlackoutCover.FadeIn();
@@ -133,7 +148,7 @@ public class GameStoryManager : MonoBehaviour {
     }
 
     public void EasyContinue() {
-        if (dialogCanvas.active && inkManager.easyContinue && !pointingAtDialogBox) {
+        if (dialogCanvas.activeInHierarchy && inkManager.easyContinue && !pointingAtDialogBox) {
             inkManager.Continue();
         }
     }

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,10 +6,18 @@ public class MainMenu : MonoBehaviour {
 
     public PanelFade m_BlackoutCover;
 
+    private bool quitting = false;
 
     void Awake()
     {
         m_BlackoutCover.FadeOut();
+    }
+
+    private void Update()
+    {
+        if (GvrControllerInput.AppButton) {
+            Quit();
+        }
     }
 
     public void FadeToByIndex(int sceneIndex) {
@@ -29,7 +36,12 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	public void Quit() {
-        StartCoroutine(QuitImpl());
+
+        if (!quitting)
+        {
+            quitting = true;
+            StartCoroutine(QuitImpl());
+        }
     }
 
     private IEnumerator QuitImpl()
@@ -39,7 +51,9 @@ public class MainMenu : MonoBehaviour {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-		Application.Quit();
+        GvrDaydreamApi.LaunchVrHomeAsync((success) => {
+            //Application.Quit(); // This results in dropping to android home before going back into daydream home.
+        });
 #endif
     }
 }
