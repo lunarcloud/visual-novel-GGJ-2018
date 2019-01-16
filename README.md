@@ -5,11 +5,19 @@ A series of more and more interesting crimes comes through the station as you pl
 Integrated the [Ink language](https://www.inklestudios.com/ink/) into [ImpactJS]( http://impactjs.com/ ) and [Unity]( https://unity3d.com/ )
 
 ## Web version
-You can either run the pre-baked index.html or use the dev.html. ImpactJS engine is included now that it is open-source.
+You can either run the pre-baked index.html or use the dev.html.
+ImpactJS engine is included now that it is open-source.
 There are scripts within the tools folder for packaging for desktop.
+This was the version created within the Jam time.
 
 ## Unity version
-This was created post-jam. Just open with Unity 2017.2 or newer and run.
+Open with Unity 2018.3.0f2 or newer.
+
+### U
+The standard 2D version.
+
+### VR
+The 3D recreation for the Google Daydream VR platform.
 
 ## Credits
 Software Development: Samuel J Sarette
