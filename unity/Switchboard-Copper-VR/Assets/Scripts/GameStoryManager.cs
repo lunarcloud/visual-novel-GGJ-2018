@@ -148,10 +148,17 @@ public class GameStoryManager : MonoBehaviour {
     }
 
     public void EasyContinue() {
-        if (dialogCanvas.activeInHierarchy && inkManager.easyContinue && !pointingAtDialogBox) {
+        return;
+        /*
+        if (inkManager.easyContinue
+            && !pointingAtDialogBox
+            && dialogCanvas.activeSelf 
+            && !dailyMenuCanvas.activeSelf) {
+
             if (inkManager.GetChoices().Count > 0) inkManager.Continue(0);
             else inkManager.Continue();
-        }
+
+        }*/
     }
 
     public void FocusDialog()

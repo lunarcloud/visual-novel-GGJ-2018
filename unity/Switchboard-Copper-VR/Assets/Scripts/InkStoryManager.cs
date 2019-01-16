@@ -44,7 +44,8 @@ public class InkStoryManager : MonoBehaviour {
 
 		string text = story.Continue ().Trim ();
 		dialogView.SetText (text);
-        m_easyContinue = story.currentChoices.Count <= 1 && !isEnded();
+
+        StartCoroutine(DelayedSetEasyContinue(story.currentChoices.Count <= 1 && !isEnded()));
 
         if (story.currentChoices.Count > 0) {
 			for (int i = 0; i < story.currentChoices.Count; i++) {
@@ -64,6 +65,14 @@ public class InkStoryManager : MonoBehaviour {
 		ProcessTags (story.currentTags);
 		dialogView.Show ();
 	}
+
+    private IEnumerator DelayedSetEasyContinue(bool value) {
+        if (value)
+        {
+            yield return new WaitForSeconds(1);
+        }
+        m_easyContinue = value;
+    }
 
 	public List<Choice> GetChoices() {
 		return story.currentChoices;
