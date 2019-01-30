@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,9 +9,21 @@ public class MainMenu : MonoBehaviour {
 
     private bool quitting = false;
 
+    private GvrControllerInputDevice DaydreamController;
+
     void Awake()
     {
         Input.backButtonLeavesApp = true;
+        GetDaydreamController();
+    }
+
+    private void GetDaydreamController()
+    {
+        DaydreamController = GvrControllerInput.GetDevice(GvrControllerHand.Dominant);
+        if (DaydreamController == null)
+        {
+            DaydreamController = GvrControllerInput.GetDevice(GvrControllerHand.NonDominant);
+        }
     }
 
     private void Start()
@@ -20,8 +33,17 @@ public class MainMenu : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || GvrControllerInput.AppButton) {
-            Quit();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+        if (DaydreamController == null) {
+            GetDaydreamController();
+        }
+        else if (DaydreamController.GetButton(GvrControllerButton.App))
+        {
+            FadeAndQuit();
         }
     }
 
@@ -40,30 +62,36 @@ public class MainMenu : MonoBehaviour {
 		SceneManager.LoadScene (sceneIndex);
 	}
 
-	public void Quit() {
+	public void FadeAndQuit() {
 
         if (!quitting)
         {
             quitting = true;
-            StartCoroutine(QuitImpl());
+            StartCoroutine(FadeAndQuitImpl());
         }
     }
 
-    private IEnumerator QuitImpl()
-    {
-        m_BlackoutCover.FadeIn();
-        yield return new WaitForSeconds(2);
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        if (GvrIntent.IsLaunchedFromVr()) {
+    private IEnumerator FadeAndQuitImpl()
+    {   
+        if (GvrIntent.IsLaunchedFromVr())
+        {
             GvrDaydreamApi.LaunchVrHomeAsync((success) => {
-                Application.Quit(success ? 0 : 1);
+                quitting = false;
+                if (!success) Debug.LogError("Couldn't switch to VR home!");
             });
-        } else {
-            Application.Quit();
         }
+        else
+        {
+            m_BlackoutCover.FadeIn();
+            yield return new WaitForSeconds(2);
+
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
 #endif
+        }
+        yield break;
     }
-  
+
 }

@@ -851,7 +851,6 @@ MonoBehaviour:
   - {fileID: 1399941100}
   DestroyOnDaydream:
   - {fileID: 755369223}
-  - {fileID: 2142602732}
   HideOnCardboard: []
   HideOnDaydream: []
 --- !u!4 &907401899
@@ -2101,7 +2100,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1460514230}
-        m_MethodName: Quit
+        m_MethodName: FadeAndQuit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
