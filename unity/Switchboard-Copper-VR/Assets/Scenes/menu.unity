@@ -851,6 +851,7 @@ MonoBehaviour:
   - {fileID: 1399941100}
   DestroyOnDaydream:
   - {fileID: 755369223}
+  - {fileID: 2142602732}
   HideOnCardboard: []
   HideOnDaydream: []
 --- !u!4 &907401899
