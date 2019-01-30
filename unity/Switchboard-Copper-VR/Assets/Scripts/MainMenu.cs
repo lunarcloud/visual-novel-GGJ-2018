@@ -10,12 +10,13 @@ public class MainMenu : MonoBehaviour {
 
     void Awake()
     {
+        Input.backButtonLeavesApp = true;
         m_BlackoutCover.FadeOut();
     }
 
     private void Update()
     {
-        if (GvrControllerInput.AppButton) {
+        if (Input.GetKeyDown(KeyCode.Escape) || GvrControllerInput.AppButton) {
             Quit();
         }
     }
@@ -51,9 +52,15 @@ public class MainMenu : MonoBehaviour {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-        GvrDaydreamApi.LaunchVrHomeAsync((success) => {
-            //Application.Quit(); // This results in dropping to android home before going back into daydream home.
-        });
+        if (GvrIntent.IsLaunchedFromVr()) {
+            GvrDaydreamApi.LaunchVrHomeAsync((success) => {
+                if (!success) {
+                    Application.Quit();
+                }
+            });
+        } else {
+            Application.Quit();
+        }
 #endif
     }
 }
