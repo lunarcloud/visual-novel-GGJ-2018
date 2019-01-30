@@ -11,6 +11,10 @@ public class MainMenu : MonoBehaviour {
     void Awake()
     {
         Input.backButtonLeavesApp = true;
+    }
+
+    private void Start()
+    {
         m_BlackoutCover.FadeOut();
     }
 
@@ -54,13 +58,12 @@ public class MainMenu : MonoBehaviour {
 #else
         if (GvrIntent.IsLaunchedFromVr()) {
             GvrDaydreamApi.LaunchVrHomeAsync((success) => {
-                if (!success) {
-                    Application.Quit();
-                }
+                Application.Quit(success ? 0 : 1);
             });
         } else {
             Application.Quit();
         }
 #endif
     }
+  
 }

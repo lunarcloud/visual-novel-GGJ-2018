@@ -113,7 +113,7 @@ PlayerSettings:
     16:10: 0
     16:9: 1
     Others: 0
-  bundleVersion: 2.0
+  bundleVersion: 2.1
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -151,8 +151,8 @@ PlayerSettings:
     Android: org.samsarette.SwitchboardCopperVR
     Standalone: com.CitizensOfAntiford.SwitchboardCopper
   buildNumber: {}
-  AndroidBundleVersionCode: 2
-  AndroidMinSdkVersion: 24
+  AndroidBundleVersionCode: 3
+  AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 

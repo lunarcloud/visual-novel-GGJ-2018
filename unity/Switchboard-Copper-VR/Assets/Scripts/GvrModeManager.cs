@@ -1,31 +1,54 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GvrModeManager : MonoBehaviour
 {
-    public enum PlatformType
+    public bool IsDaydream
     {
-        AutoDetect,
-        Cardboard,
-        Daydream
+        get
+        {
+#if UNITY_EDITOR || !UNITY_ANDROID
+            return true;
+#else
+            return GvrIntent.IsLaunchedFromVr() || GvrSettings.ViewerPlatform == GvrSettings.ViewerPlatformType.Daydream;
+#endif
+        }
     }
 
-    public PlatformType Platform = PlatformType.AutoDetect;
+    public GameObject[] DestroyOnCardboard;
+    public GameObject[] DestroyOnDaydream;
+    public GameObject[] HideOnCardboard;
+    public GameObject[] HideOnDaydream;
 
     void Awake()
     {
-        var launchedVR = GvrIntent.IsLaunchedFromVr();
-        var internalPlatform = GvrSettings.ViewerPlatform;
-
-        if (Platform == PlatformType.AutoDetect) {
-            Platform = launchedVR || internalPlatform == GvrSettings.ViewerPlatformType.Daydream ? PlatformType.Daydream : PlatformType.Cardboard;
+        if (IsDaydream)
+        {
+            Destroy(DestroyOnDaydream);
+            Hide(HideOnDaydream);
         }
-        var wrongSDKObjects = GameObject.FindGameObjectsWithTag((Platform == PlatformType.Daydream ? "Cardboard" : "Daydream") + "Only");
-
-        foreach (var gameObject in wrongSDKObjects) Destroy(gameObject);
-
-        DontDestroyOnLoad(this);
+        else
+        {
+            Destroy(DestroyOnCardboard);
+            Hide(HideOnCardboard);
+        }
     }
-    
+
+    private void Destroy(GameObject[] list)
+    {
+
+        if (list != null) foreach (var gameObject in list)
+            {
+                Debug.Log("Deleting " + gameObject.name);
+                Destroy(gameObject);
+            }
+    }
+
+    private void Hide(GameObject[] list)
+    {
+        if (list != null) foreach (var gameObject in list)
+            {
+                Debug.Log("Hiding " + gameObject.name);
+                gameObject.SetActive(false);
+            }
+    }
 }

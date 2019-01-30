@@ -755,7 +755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 171526, guid: 60270cf52a5e94998a5a335989159738, type: 3}
       propertyPath: m_TagString
-      value: CardboardOnly
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 482300, guid: 60270cf52a5e94998a5a335989159738, type: 3}
       propertyPath: m_LocalPosition.x
@@ -811,6 +811,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60270cf52a5e94998a5a335989159738, type: 3}
+--- !u!1 &755369223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 171526, guid: 60270cf52a5e94998a5a335989159738,
+    type: 3}
+  m_PrefabInstance: {fileID: 755369222}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &907401897
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +846,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dda1fee6337a66847b8b0546a43992b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Platform: 0
+  DestroyOnCardboard:
+  - {fileID: 1174586991}
+  - {fileID: 1399941100}
+  DestroyOnDaydream:
+  - {fileID: 755369223}
+  HideOnCardboard: []
+  HideOnDaydream: []
 --- !u!4 &907401899
 Transform:
   m_ObjectHideFlags: 0
@@ -1197,7 +1209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 555767533, guid: 34c21f523e72f45509a4e37ed0293c3b, type: 3}
       propertyPath: m_TagString
-      value: DaydreamOnly
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1820761120, guid: 34c21f523e72f45509a4e37ed0293c3b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1262,6 +1274,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34c21f523e72f45509a4e37ed0293c3b, type: 3}
+--- !u!1 &1174586991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 555767533, guid: 34c21f523e72f45509a4e37ed0293c3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1174586990}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1290540240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,7 +1540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198490, guid: 5ca80f4596fa44b87912a0592346d260, type: 3}
       propertyPath: m_TagString
-      value: DaydreamOnly
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 424718, guid: 5ca80f4596fa44b87912a0592346d260, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1570,6 +1588,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ca80f4596fa44b87912a0592346d260, type: 3}
+--- !u!1 &1399941100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 198490, guid: 5ca80f4596fa44b87912a0592346d260,
+    type: 3}
+  m_PrefabInstance: {fileID: 1399941099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1434412501
 GameObject:
   m_ObjectHideFlags: 0
