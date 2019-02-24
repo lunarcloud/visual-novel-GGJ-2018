@@ -19,6 +19,10 @@ The standard 2D version.
 ### VR
 The 3D recreation for the Google Daydream VR platform.
 
+## Ren'Py Version
+This version *does not* use ink. It instead uses the re'py platform's conventions for story definition. It is provided for comparison's sake.
+Additionally, the "daily menu" has not been implemented in its graphical form. That seems complex, but it may come eventually.
+
 ## Credits
 Software Development: Samuel J Sarette
 
