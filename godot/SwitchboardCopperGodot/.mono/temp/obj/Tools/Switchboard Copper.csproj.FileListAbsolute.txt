@@ -1,6 +1,0 @@
-/home/sam/GitHub/visual-novel-GGJ-2018/godot/SwitchboardCopperGodot/.mono/temp/obj/Tools/Switchboard Copper.csprojAssemblyReference.cache
-/home/sam/GitHub/visual-novel-GGJ-2018/godot/SwitchboardCopperGodot/.mono/temp/obj/Tools/Switchboard Copper.csproj.CoreCompileInputs.cache
-/home/sam/GitHub/visual-novel-GGJ-2018/godot/SwitchboardCopperGodot/.mono/temp/bin/Tools/Switchboard Copper.dll
-/home/sam/GitHub/visual-novel-GGJ-2018/godot/SwitchboardCopperGodot/.mono/temp/bin/Tools/Switchboard Copper.pdb
-/home/sam/GitHub/visual-novel-GGJ-2018/godot/SwitchboardCopperGodot/.mono/temp/obj/Tools/Switchboard Copper.dll
-/home/sam/GitHub/visual-novel-GGJ-2018/godot/SwitchboardCopperGodot/.mono/temp/obj/Tools/Switchboard Copper.pdb
