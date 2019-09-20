@@ -16,8 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Switchboard Copper"
-run/main_scene="res://Node2D.tscn"
+run/main_scene="res://menu.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
 
 [rendering]
 

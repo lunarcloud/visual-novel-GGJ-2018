@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Jahzzar - Airship Fury.ogg-8c506c151ee3e01be9ca3206ed865987.oggstr"
+
+[deps]
+
+source_file="res://media/music/Jahzzar - Airship Fury.ogg"
+dest_files=[ "res://.import/Jahzzar - Airship Fury.ogg-8c506c151ee3e01be9ca3206ed865987.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

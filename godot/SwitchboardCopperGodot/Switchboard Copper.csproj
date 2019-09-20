@@ -49,7 +49,6 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="godot-ink\addons\paulloz.ink\PaullozDotInk.cs" />
     <Compile Include="godot-ink\addons\paulloz.ink\InkDock.cs" />
     <Compile Include="godot-ink\addons\paulloz.ink\Story.cs" />
     <Reference Include="Ink">

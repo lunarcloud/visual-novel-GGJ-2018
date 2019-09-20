@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hall5.ogg-ae87bf032d612c45e86d3c7067250445.oggstr"
+
+[deps]
+
+source_file="res://media/music/hall5.ogg"
+dest_files=[ "res://.import/hall5.ogg-ae87bf032d612c45e86d3c7067250445.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
