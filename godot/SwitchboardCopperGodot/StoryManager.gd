@@ -54,9 +54,9 @@ func _process_tags(tags):
 	for tag in tags:
 		if (tag.begins_with("music:")):
 			play_music(tag.trim_prefix("music:"))
-		if (tag.begins_with("background:")):
+		elif (tag.begins_with("background:")):
 			set_background(tag.trim_prefix("background:"))
-		if (tag.begins_with("portrait:")):
+		elif (tag.begins_with("portrait:")):
 			set_portrait(tag.trim_prefix("portrait:"))
 		else:
 			# TODO More tags, game specific tags
