@@ -7,6 +7,13 @@ onready var choicesContainer = get_node("TextCanvas/TextPanel/Vert/ChoicesContai
 onready var speechBubble = get_node("TextCanvas/TextPanel")
 onready var title = get_node("TitleContainer/Title/TitleText")
 onready var titleContinueButton = get_node("TitleContainer/Title/ContinueButton2")
+onready var dailyMenu = get_node("DailyMenu/desk")
+onready var button_note = get_node("DailyMenu/desk/note")
+onready var button_briggs = get_node("DailyMenu/desk/coworkers/briggs")
+onready var button_wiley = get_node("DailyMenu/desk/coworkers/wiley")
+onready var button_doherty = get_node("DailyMenu/desk/coworkers/doherty")
+onready var button_custer = get_node("DailyMenu/desk/coworkers/custer")
+onready var button_hughes = get_node("DailyMenu/desk/coworkers/hughes")
 onready var background = get_node("Background")
 onready var music = get_node("MusicPlayer")
 onready var portraits = get_node("Portraits");
@@ -15,7 +22,7 @@ var end_cursor = preload("res://media/end-cursor.png")
 var atEnd = false
 
 # Must be in same index numbers as ordered in the ink file
-var choices = PoolStringArray()
+var choices
 
 func _ready():
 	ink_manager.connect("ink_ready", self, "start_story")
@@ -30,6 +37,13 @@ func _ready():
 	for choice in choicesContainer.get_children():
 		choice.connect("pressed", self, "_select_choice", [index])
 		index += 1
+		
+	button_note.connect("pressed", self, "_daily_menu_choose", ["Note"])
+	button_briggs.connect("pressed", self, "_daily_menu_choose", ["SgtBriggs"])
+	button_wiley.connect("pressed", self, "_daily_menu_choose", ["OffWiley"])
+	button_doherty.connect("pressed", self, "_daily_menu_choose", ["SgtDoherty"])
+	button_custer.connect("pressed", self, "_daily_menu_choose", ["OffCuster"])
+	button_hughes.connect("pressed", self, "_daily_menu_choose", ["LtHughes"])
 
 func start_story():
 	label.set_text("loading story...")
@@ -53,6 +67,17 @@ func _continue():
 
 func _select_choice(index: int):
 	ink_manager.continue(index)
+
+func _daily_menu_choose(name: String):
+	var index = 0
+	for choice in choices:
+		print(choice.text)
+		if choice.text == name:
+			_hide_daily_menu()
+			_select_choice(index)
+			return
+		index += 1
+	print("Couldn't find " + name + " in current choices")
 	
 func end_of_story():
 	atEnd = true
@@ -67,7 +92,7 @@ func _process_tags(tags: PoolStringArray):
 		elif (tag.begins_with("portrait:")):
 			set_portrait(tag.trim_prefix("portrait:"))
 		elif (tag.begins_with("dailymenu:")):
-			_show_daily_menu(tag.trim_prefix("dailymenu:"))
+			_show_daily_menu()
 		elif (tag == "title"):
 			_show_as_title()
 		else:
@@ -85,7 +110,7 @@ func _reset_bubble_size():
 	speechBubble.margin_top = 620
 	speechBubble.margin_bottom = -10
 	
-func _on_choices(currentChoices: Array):
+func _on_choices(currentChoices):
 	#clear choices
 	choicesContainer.visible = false
 	for choice in choicesContainer.get_children():
@@ -93,7 +118,9 @@ func _on_choices(currentChoices: Array):
 		
 	if currentChoices.size() == 0:
 		continueButton.visible = true
-		if !title.get_parent().visible:
+		if dailyMenu.visible:
+			button_note.grab_focus()
+		elif !title.get_parent().visible:
 			continueButton.grab_focus()
 	else:
 		choices = currentChoices
@@ -101,11 +128,22 @@ func _on_choices(currentChoices: Array):
 		continueButton.visible = false
 		choicesContainer.visible = true
 		for choice in currentChoices:
-			if index < 4:
+			if dailyMenu.visible:
+				match choice.text:
+					"SgtBriggs": button_briggs.visible = true
+					"OffWiley": button_wiley.visible = true
+					"SgtDoherty": button_doherty.visible = true
+					"OffCuster": button_custer.visible = true
+					"LtHughes": button_hughes.visible = true
+			elif index < 6:
 				choicesContainer.get_child(index).visible = true
 				choicesContainer.get_child(index).set_text(choice.text)
 			index += 1
-		choicesContainer.get_child(0).grab_focus()
+			
+		if dailyMenu.visible:
+			button_note.grab_focus()
+		else:
+			choicesContainer.get_child(0).grab_focus()
 
 		
 func play_music(song: String):
@@ -121,9 +159,19 @@ func set_portrait(name: String):
 	if (name != "none"):
 		get_node("Portraits/" + name).visible = true
 
-func _show_daily_menu(day: String):
-	pass #TODO
-	
+func _show_daily_menu():
+	dailyMenu.visible = true
+	speechBubble.visible = false
+
+func _hide_daily_menu():
+	dailyMenu.visible = false
+	speechBubble.visible = true
+	button_briggs.visible = false
+	button_custer.visible = false
+	button_doherty.visible = false
+	button_hughes.visible = false
+	button_wiley.visible = false
+			
 func _show_as_title():
 	title.text = ink_manager.story.current_text
 	speechBubble.visible = false

@@ -56,6 +56,7 @@ func get_current_text():
 
     return self.state.current_text
 
+# warning-ignore:unused_class_variable
 var current_tags setget , get_current_tags # Array<String>
 func get_current_tags():
     if async_we_cant("call currentTags since it's a work in progress"):
@@ -63,18 +64,23 @@ func get_current_tags():
 
     return self.state.current_tags
 
+# warning-ignore:unused_class_variable
 var current_errors setget , get_current_errors # Array<String>
 func get_current_errors(): return self.state.current_errors
 
+# warning-ignore:unused_class_variable
 var current_warnings setget , get_current_warnings # Array<String>
 func get_current_warnings(): return self.state.current_warnings
 
+# warning-ignore:unused_class_variable
 var has_error setget , get_has_error # bool
 func get_has_error(): return self.state.has_error
 
+# warning-ignore:unused_class_variable
 var has_warning setget , get_has_warning # bool
 func get_has_warning(): return self.state.has_warning
 
+# warning-ignore:unused_class_variable
 var variables_state setget , get_variables_state # VariablesState
 func get_variables_state(): return self.state.variables_state
 
@@ -204,6 +210,7 @@ var can_continue setget , get_continue # bool
 func get_continue():
     return self.state.can_continue
 
+# warning-ignore:unused_class_variable
 var async_continue_complete setget , get_async_continue_complete # bool
 func get_async_continue_complete():
     return !self._async_continue_active
@@ -1300,6 +1307,7 @@ func variable_state_did_change_event(variable_name, new_value_obj):
         observer.emit_signal("variable_changed", variable_name, val.value_object)
 
 
+# warning-ignore:unused_class_variable
 var global_tags setget , get_global_tags # Array<String>
 func get_global_tags():
     return self.tags_at_start_of_flow_container_with_path_string("")
@@ -1335,6 +1343,7 @@ func build_string_of_container():
     return ""
 
 # (Container) -> String
+# warning-ignore:unused_argument
 func build_string_of_container_with(container):
     # TODO: Implement
     return ""
@@ -1593,6 +1602,7 @@ func get_current_debug_metadata():
 
     return null
 
+# warning-ignore:unused_class_variable
 var current_line_number setget , get_current_line_number # int
 func get_current_line_number():
     var dm = self.current_debug_metadata
@@ -1656,6 +1666,7 @@ func _get_runtime():
 class VariableObserver extends Reference:
     var variable_name # String
 
+# warning-ignore:unused_signal
     signal variable_changed(variable_name, new_value)
 
     func _init(variable_name):
