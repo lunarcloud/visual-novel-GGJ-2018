@@ -1,15 +1,21 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://StoryManager.gd" type="Script" id=1]
 [ext_resource path="res://InkRuntimeManager.gd" type="Script" id=2]
 [ext_resource path="res://fonts/Cavalcade/Cavalcade-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://media/portrait/francis.png" type="Texture" id=4]
-[ext_resource path="res://media/portrait/note.png" type="Texture" id=5]
-[ext_resource path="res://media/portrait/shadow.png" type="Texture" id=6]
-[ext_resource path="res://media/portrait/telegraph.png" type="Texture" id=7]
+[ext_resource path="res://media/side-cursor.png" type="Texture" id=4]
+[ext_resource path="res://media/portrait/francis.png" type="Texture" id=5]
+[ext_resource path="res://media/portrait/note.png" type="Texture" id=6]
+[ext_resource path="res://media/portrait/shadow.png" type="Texture" id=7]
+[ext_resource path="res://media/portrait/telegraph.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=6]
 size = 80
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
 use_filter = true
 font_data = ExtResource( 3 )
 
@@ -38,10 +44,6 @@ expand_margin_bottom = 4.0
 [sub_resource type="DynamicFont" id=7]
 size = 24
 use_filter = true
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 24
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -83,6 +85,18 @@ align = 1
 valign = 1
 autowrap = true
 
+[node name="ContinueButton2" type="Button" parent="StoryManager/TitleContainer/Title"]
+margin_left = 1235.0
+margin_top = 679.0
+margin_right = 1289.0
+margin_bottom = 727.0
+size_flags_horizontal = 10
+size_flags_vertical = 10
+custom_fonts/font = SubResource( 3 )
+icon = ExtResource( 4 )
+flat = true
+align = 2
+
 [node name="Background" type="TextureRect" parent="StoryManager"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -100,7 +114,7 @@ margin_left = 31.2857
 margin_top = -10.1257
 margin_right = 671.286
 margin_bottom = 709.874
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="note" type="TextureRect" parent="StoryManager/Portraits"]
 visible = false
@@ -108,7 +122,7 @@ margin_left = 31.2857
 margin_top = -10.1257
 margin_right = 671.286
 margin_bottom = 709.874
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="shadow" type="TextureRect" parent="StoryManager/Portraits"]
 visible = false
@@ -116,7 +130,7 @@ margin_left = 31.2857
 margin_top = -10.1257
 margin_right = 671.286
 margin_bottom = 709.874
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="telegraph" type="TextureRect" parent="StoryManager/Portraits"]
 visible = false
@@ -124,7 +138,7 @@ margin_left = 10.2857
 margin_top = -19.1257
 margin_right = 650.286
 margin_bottom = 700.874
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="TextCanvas" type="CanvasLayer" parent="StoryManager"]
 
@@ -145,7 +159,7 @@ custom_styles/panel = SubResource( 8 )
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 1124.0
-margin_bottom = 302.0
+margin_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -154,7 +168,7 @@ custom_constants/separation = 2
 
 [node name="StoryText" type="Label" parent="StoryManager/TextCanvas/TextPanel/Vert"]
 margin_right = 1120.0
-margin_bottom = 29.0
+margin_bottom = 48.0
 grow_horizontal = 2
 rect_min_size = Vector2( 1120, 0 )
 size_flags_vertical = 11
@@ -165,22 +179,21 @@ valign = 1
 autowrap = true
 
 [node name="ContinueButton" type="Button" parent="StoryManager/TextCanvas/TextPanel/Vert"]
-margin_left = 1061.0
-margin_top = 31.0
+margin_left = 1084.0
+margin_top = 50.0
 margin_right = 1120.0
-margin_bottom = 66.0
-size_flags_horizontal = 10
-size_flags_vertical = 10
-custom_fonts/font = SubResource( 3 )
-text = "next"
+margin_bottom = 80.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+icon = ExtResource( 4 )
 flat = true
-align = 2
 
 [node name="ChoicesContainer" type="VBoxContainer" parent="StoryManager/TextCanvas/TextPanel/Vert"]
+visible = false
 margin_left = 521.0
-margin_top = 68.0
+margin_top = 81.0
 margin_right = 599.0
-margin_bottom = 298.0
+margin_bottom = 311.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 

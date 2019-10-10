@@ -5,9 +5,14 @@ onready var label = get_node("TextCanvas/TextPanel/Vert/StoryText")
 onready var continueButton = get_node("TextCanvas/TextPanel/Vert/ContinueButton")
 onready var choicesContainer = get_node("TextCanvas/TextPanel/Vert/ChoicesContainer")
 onready var speechBubble = get_node("TextCanvas/TextPanel")
+onready var title = get_node("TitleContainer/Title/TitleText")
+onready var titleContinueButton = get_node("TitleContainer/Title/ContinueButton2")
 onready var background = get_node("Background")
 onready var music = get_node("MusicPlayer")
 onready var portraits = get_node("Portraits");
+
+var end_cursor = preload("res://media/end-cursor.png")
+var atEnd = false
 
 # Must be in same index numbers as ordered in the ink file
 var choices = PoolStringArray()
@@ -20,6 +25,7 @@ func _ready():
 	ink_manager.connect("ink_update_choices", self, "_on_choices")
 	
 	continueButton.connect("pressed", self, "_continue")
+	titleContinueButton.connect("pressed", self, "_title_continue")
 	var index = 0
 	for choice in choicesContainer.get_children():
 		choice.connect("pressed", self, "_select_choice", [index])
@@ -40,7 +46,7 @@ func _input(event):
 		_quit_to_menu()
 
 func _continue():
-	if continueButton.text == "End":
+	if atEnd:
 		_quit_to_menu()
 	else:
 		ink_manager.continue()
@@ -49,8 +55,9 @@ func _select_choice(index: int):
 	ink_manager.continue(index)
 	
 func end_of_story():
-	continueButton.text = "End"
-	
+	atEnd = true
+	continueButton.icon = end_cursor
+
 func _process_tags(tags: PoolStringArray):
 	for tag in tags:
 		if (tag.begins_with("music:")):
@@ -86,7 +93,8 @@ func _on_choices(currentChoices: Array):
 		
 	if currentChoices.size() == 0:
 		continueButton.visible = true
-		continueButton.grab_focus()
+		if !title.get_parent().visible:
+			continueButton.grab_focus()
 	else:
 		choices = currentChoices
 		var index = 0
@@ -117,5 +125,14 @@ func _show_daily_menu(day: String):
 	pass #TODO
 	
 func _show_as_title():
-	var text = ink_manager.story.current_text
-	pass #TODO
+	title.text = ink_manager.story.current_text
+	speechBubble.visible = false
+	title.get_parent().visible = true
+	titleContinueButton.grab_focus()
+	titleContinueButton.grab_click_focus()
+
+func _title_continue():
+	title.get_parent().visible = false
+	speechBubble.visible = true
+	_continue()
+	
