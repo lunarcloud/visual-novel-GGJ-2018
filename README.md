@@ -13,6 +13,7 @@ This was the version created within the Jam time.
 ## Godot version
 Open with Godot 3.1 or newer.
 The engine is completely open-source and the project will export to all platforms: desktop, web, and mobile.
+Make sure to add "ink/main.json" to the extra-files-to-export filter in each export preset you add.
 
 ## Unity version
 Open with Unity 2018.3.0f2 or newer.
