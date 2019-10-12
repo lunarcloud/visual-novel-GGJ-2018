@@ -2,13 +2,14 @@
 A series of more and more interesting crimes comes through the station as you play a switchboard policeman in [the fictional world of Antiford]( https://citizensofantiford.com ).
 
 ## Technology
-Integrated the [Ink language](https://www.inklestudios.com/ink/) into [ImpactJS]( http://impactjs.com/ ) and [Unity]( https://unity3d.com/ )
+Integrated the [Ink language](https://www.inklestudios.com/ink/) into [ImpactJS]( http://impactjs.com/ ), [Unity]( https://unity3d.com/ ), [Godot]( https://godotengine.org/ ), and compare it with the non-ink vn experience, [RenPy](https://www.renpy.org/)
 
 ## Web version
 You can either run the pre-baked index.html or use the dev.html.
 ImpactJS engine is included now that it is open-source.
 There are scripts within the tools folder for packaging for desktop.
-This was the version created within the Jam time.
+
+_This was the version created within the Jam time._
 
 ## Godot version
 Open with Godot 3.1 or newer.
@@ -25,7 +26,7 @@ The standard 2D version.
 The 3D recreation for the Google Daydream VR platform.
 
 ## Ren'Py Version
-This version *does not use ink*. It instead uses the re'py platform's conventions for story definition. It is provided for comparison's sake.
+This version __does not use ink__. It instead uses the re'py platform's conventions for story definition. It is provided for comparison's sake.
 Additionally, the "daily menu" has not been implemented in its graphical form. That seems complex, but it may come eventually.
 
 ## Credits
