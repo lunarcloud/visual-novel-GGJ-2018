@@ -10,6 +10,10 @@ func _ready():
 	$PlayButton.connect("pressed", self, "_play")
 	$QuitButton.connect("pressed", self, "_quit")
 	
+	if OS.get_name() == "HTML5":
+		$QuitButton.visible = false;
+	else:
+		$QuitButton.connect("pressed", self, "_quit")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

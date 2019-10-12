@@ -10,7 +10,7 @@ First Day, big decision
 Day 1#title
 
 You wake up, still tired from not having slept well.
-“Maybe the police can do without their switchboard officer today,” you think briefly.
+"Maybe the police can do without their switchboard officer today," you think briefly.
 Slowly, you get out of bed and prepare to set off for work.
 
 The long trudge to the police station was made better by the shade cast by a rare cloudy day. Antiford does not get many overcast days.
@@ -23,12 +23,12 @@ The office is almost stiflingly hot. You set your bag down. Your assistant, Fran
 = greet_francis
 #portrait:francis
 
-“Good Morning, Francis. How are you?”
-“I am well, Sergeant. You're a little late. Did you have a difficult morning?
-“Not too difficult. And, so I am... hrm. My watch has been running behind lately."
-“I've brought you a chilled tea from the shop around the corner.”
-“Thank you, Francis. That is my favorite shop.”
-“Good to know.”
+"Good Morning, Francis. How are you?"
+"I am well, Sergeant. You're a little late. Did you have a difficult morning?
+"Not too difficult. And, so I am... hrm. My watch has been running behind lately."
+"I've brought you a chilled tea from the shop around the corner."
+"Thank you, Francis. That is my favorite shop."
+"Good to know."
 -> after_greet
 
 = after_greet

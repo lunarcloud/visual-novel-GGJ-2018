@@ -55,14 +55,14 @@ Been talking to witnesses. No perp sightings, but we've found an out-of-place ha
 = doherty
 #portrait:telegraph
 
-“I'm not on that case, Sergeant. I'm doing patrols.”
+"I'm not on that case, Sergeant. I'm doing patrols."
 
 -> menu
 
 = wiley
 #portrait:telegraph
 
-“No, no. Sergeant *Doherty* and Officer Custer are down at the jewelers', not I.”
+"No, no. Sergeant *Doherty* and Officer Custer are down at the jewelers', not I."
 
 -> menu
 
@@ -96,7 +96,7 @@ You look at the message, no address or name, just:
 #portrait:none
 
 #background:home
-You watch your back on the way home. 
+You watch your back on the way home.
 You could swear you saw a waifish shadow follow you. #portrait:shadow
 What does one do? When you are the police and you feel unsafe? #portrait:none
 
