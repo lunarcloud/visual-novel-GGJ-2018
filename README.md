@@ -10,6 +10,10 @@ ImpactJS engine is included now that it is open-source.
 There are scripts within the tools folder for packaging for desktop.
 This was the version created within the Jam time.
 
+## Godot version
+Open with Godot 3.1 or newer.
+The engine is completely open-source and the project will export to all platforms: desktop, web, and mobile.
+
 ## Unity version
 Open with Unity 2018.3.0f2 or newer.
 
@@ -20,7 +24,7 @@ The standard 2D version.
 The 3D recreation for the Google Daydream VR platform.
 
 ## Ren'Py Version
-This version *does not* use ink. It instead uses the re'py platform's conventions for story definition. It is provided for comparison's sake.
+This version *does not use ink*. It instead uses the re'py platform's conventions for story definition. It is provided for comparison's sake.
 Additionally, the "daily menu" has not been implemented in its graphical form. That seems complex, but it may come eventually.
 
 ## Credits
