@@ -27,14 +27,15 @@ Officer Custer was shot, taken to the hospital. I am personally looking after hi
 -> menu
 
 = menu
+#portrait:none 
+{note and briggs and doherty and wiley and hughes: -> afterall}
 
-#portrait:none #dailymenu:day5
+#dailymenu:day5
 + {note} [Note] -> note
 * {note} [SgtBriggs] -> briggs
 * {note} [SgtDoherty] -> doherty
 * {note} [OffWiley] -> wiley
 * {note} [LtHughes] -> hughes
-* {note and CHOICE_COUNT() == 1} [Continue] -> afterall
 * {not note} [Note] -> note
 
 = briggs

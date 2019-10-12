@@ -27,17 +27,17 @@ size = 24
 use_filter = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="ButtonGroup" id=9]
+[sub_resource type="ButtonGroup" id=3]
 resource_name = "dailymenu"
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 22
 use_filter = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="ImageTexture" id=4]
+[sub_resource type="ImageTexture" id=5]
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=6]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
@@ -57,18 +57,18 @@ expand_margin_right = 2.0
 expand_margin_top = 4.0
 expand_margin_bottom = 4.0
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 24
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=8]
 size = 24
 use_filter = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="ButtonGroup" id=8]
+[sub_resource type="ButtonGroup" id=9]
 
 [node name="Main" type="Node2D"]
 
@@ -145,7 +145,7 @@ margin_bottom = 168.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
-group = SubResource( 9 )
+group = SubResource( 3 )
 flat = true
 
 [node name="vbox" type="VBoxContainer" parent="StoryManager/DailyMenu/desk/coworkers/wiley"]
@@ -170,7 +170,7 @@ margin_bottom = 198.0
 grow_horizontal = 2
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Officer Wiley
 "
 align = 1
@@ -184,7 +184,7 @@ margin_bottom = 168.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
-group = SubResource( 9 )
+group = SubResource( 3 )
 flat = true
 
 [node name="vbox" type="VBoxContainer" parent="StoryManager/DailyMenu/desk/coworkers/briggs"]
@@ -210,7 +210,7 @@ margin_bottom = 198.0
 grow_horizontal = 2
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Seagent Briggs"
 align = 1
 
@@ -223,7 +223,7 @@ margin_bottom = 376.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
-group = SubResource( 9 )
+group = SubResource( 3 )
 flat = true
 
 [node name="vbox" type="VBoxContainer" parent="StoryManager/DailyMenu/desk/coworkers/doherty"]
@@ -249,7 +249,7 @@ margin_bottom = 198.0
 grow_horizontal = 2
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Seagent Doherty"
 align = 1
 
@@ -263,7 +263,7 @@ margin_bottom = 376.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
-group = SubResource( 9 )
+group = SubResource( 3 )
 flat = true
 
 [node name="vbox" type="VBoxContainer" parent="StoryManager/DailyMenu/desk/coworkers/custer"]
@@ -288,7 +288,7 @@ margin_bottom = 198.0
 grow_horizontal = 2
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Officer Custer"
 align = 1
 
@@ -301,7 +301,7 @@ margin_bottom = 599.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
-group = SubResource( 9 )
+group = SubResource( 3 )
 flat = true
 
 [node name="vbox" type="VBoxContainer" parent="StoryManager/DailyMenu/desk/coworkers/hughes"]
@@ -326,7 +326,7 @@ margin_bottom = 203.0
 grow_horizontal = 2
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Lt. Gerald Hughes"
 align = 1
 
@@ -336,7 +336,7 @@ margin_left = 526.0
 margin_top = 388.0
 margin_right = 792.0
 margin_bottom = 687.0
-group = SubResource( 9 )
+group = SubResource( 3 )
 flat = true
 
 [node name="vbox" type="VBoxContainer" parent="StoryManager/DailyMenu/desk/note"]
@@ -356,14 +356,14 @@ margin_bottom = 305.0
 grow_horizontal = 2
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Refer to Note"
 align = 1
 
 [node name="Background" type="TextureRect" parent="StoryManager"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( 4 )
+texture = SubResource( 5 )
 stretch_mode = 7
 
 [node name="Portraits" type="Node2D" parent="StoryManager"]
@@ -414,7 +414,7 @@ grow_horizontal = 2
 grow_vertical = 0
 rect_min_size = Vector2( 1120, 80 )
 size_flags_vertical = 11
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 6 )
 
 [node name="Vert" type="VBoxContainer" parent="StoryManager/TextCanvas/TextPanel"]
 margin_left = 4.0
@@ -433,7 +433,7 @@ margin_bottom = 48.0
 grow_horizontal = 2
 rect_min_size = Vector2( 1120, 0 )
 size_flags_vertical = 11
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "story not loaded"
 align = 1
@@ -465,12 +465,12 @@ size_flags_vertical = 6
 [node name="Choice1" type="Button" parent="StoryManager/TextCanvas/TextPanel/Vert/ChoicesContainer"]
 margin_right = 78.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color_disabled = Color( 0.8, 0.8, 0.8, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.2, 0.2, 0.2, 1 )
 custom_colors/font_color_pressed = Color( 0.333333, 0.333333, 0.333333, 1 )
-group = SubResource( 8 )
+group = SubResource( 9 )
 text = "Choice"
 flat = true
 
@@ -478,12 +478,12 @@ flat = true
 margin_top = 39.0
 margin_right = 78.0
 margin_bottom = 74.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color_disabled = Color( 0.8, 0.8, 0.8, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.2, 0.2, 0.2, 1 )
 custom_colors/font_color_pressed = Color( 0.333333, 0.333333, 0.333333, 1 )
-group = SubResource( 8 )
+group = SubResource( 9 )
 text = "Choice"
 flat = true
 
@@ -491,12 +491,12 @@ flat = true
 margin_top = 78.0
 margin_right = 78.0
 margin_bottom = 113.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color_disabled = Color( 0.8, 0.8, 0.8, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.2, 0.2, 0.2, 1 )
 custom_colors/font_color_pressed = Color( 0.333333, 0.333333, 0.333333, 1 )
-group = SubResource( 8 )
+group = SubResource( 9 )
 text = "Choice"
 flat = true
 
@@ -504,12 +504,12 @@ flat = true
 margin_top = 117.0
 margin_right = 78.0
 margin_bottom = 152.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color_disabled = Color( 0.8, 0.8, 0.8, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.2, 0.2, 0.2, 1 )
 custom_colors/font_color_pressed = Color( 0.333333, 0.333333, 0.333333, 1 )
-group = SubResource( 8 )
+group = SubResource( 9 )
 text = "Choice"
 flat = true
 
@@ -517,12 +517,12 @@ flat = true
 margin_top = 156.0
 margin_right = 78.0
 margin_bottom = 191.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color_disabled = Color( 0.8, 0.8, 0.8, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.2, 0.2, 0.2, 1 )
 custom_colors/font_color_pressed = Color( 0.333333, 0.333333, 0.333333, 1 )
-group = SubResource( 8 )
+group = SubResource( 9 )
 text = "Choice"
 flat = true
 
@@ -530,11 +530,11 @@ flat = true
 margin_top = 195.0
 margin_right = 78.0
 margin_bottom = 230.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color_disabled = Color( 0.8, 0.8, 0.8, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.2, 0.2, 0.2, 1 )
 custom_colors/font_color_pressed = Color( 0.333333, 0.333333, 0.333333, 1 )
-group = SubResource( 8 )
+group = SubResource( 9 )
 text = "Choice"
 flat = true
